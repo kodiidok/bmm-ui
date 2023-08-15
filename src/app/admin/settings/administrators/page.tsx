@@ -1,4 +1,4 @@
-import Administrators from "./administrators";
+import Administrators from "./Administrators";
 
 
 

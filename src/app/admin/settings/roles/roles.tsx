@@ -1,9 +1,7 @@
-// src/pages/roles.tsx
-
 import React from 'react';
 import '../app/page.module.css';
 import { GetServerSideProps } from 'next';
-import RolesList from '../components/RolesList';
+import RolesList from './RolesList';
 
 interface Role {
   id: string;
