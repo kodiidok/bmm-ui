@@ -1,5 +1,3 @@
-// src/components/RolesList.tsx
-
 import React from 'react';
 import '../app/page.module.css';
 

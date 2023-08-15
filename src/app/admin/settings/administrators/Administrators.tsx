@@ -1,5 +1,3 @@
-// src/pages/administrators.tsx
-
 import React from 'react';
 import '../app/page.module.css';
 import { GetServerSideProps } from 'next';
