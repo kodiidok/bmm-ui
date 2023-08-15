@@ -23,17 +23,21 @@ const afterwareLink = new ApolloLink((operation, forward) => {
 
 const client = new ApolloClient({
     link: ApolloLink.from([
-        setContext(() => {
+        setContext((_, { headers }) => {
             const authToken = localStorage.getItem(AUTH_TOKEN_KEY);
             if (authToken) {
                 // If we have stored the authToken from a previous
                 // response, we attach it to all subsequent requests.
                 return {
                     headers: {
+                        ...headers,
                         authorization: `Bearer ${authToken}`,
                     },
                 };
             }
+            return {
+                headers,
+            };
         }),
         afterwareLink,
         httpLink,
