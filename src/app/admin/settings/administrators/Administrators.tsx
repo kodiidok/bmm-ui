@@ -3,7 +3,7 @@
 import React from 'react';
 import '../app/page.module.css';
 import { GetServerSideProps } from 'next';
-import AdministratorsList from '../components/AdministratorsList';
+import AdministratorsList from './AdministratorsList';
 
 interface Administrator {
   id: string;
@@ -12,11 +12,11 @@ interface Administrator {
   email: string;
 }
 
-interface AdministratorsPageProps {
+interface AdministratorsProps {
   administrators: Administrator[];
 }
 
-const AdministratorsPage: React.FC<AdministratorsPageProps> = ({ administrators }) => {
+const Administrators: React.FC<AdministratorsProps> = ({ administrators }) => {
   return (
     <div>
       <h2>Administrators List</h2>
@@ -25,10 +25,10 @@ const AdministratorsPage: React.FC<AdministratorsPageProps> = ({ administrators 
   );
 };
 
-export const getServerSideProps: GetServerSideProps<AdministratorsPageProps> = async () => {
+export const getServerSideProps: GetServerSideProps<AdministratorsProps> = async () => {
   // Fetch administrators from your API and pass them as props
   const administrators = await fetch('/api/administrators').then(response => response.json());
   return { props: { administrators } };
 };
 
-export default AdministratorsPage;
+export default Administrators;
