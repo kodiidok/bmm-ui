@@ -4,16 +4,21 @@ const useStyles = createStyles((theme) => ({
   logoHighlight: {
     // color: "#F03E3E"
     display: "flex",
-    alignItems: "center"
+    alignItems: "center",
   },
   container: {
     display: "flex",
     width: "100%",
-    backgroundColor: "#F8F9FA",
-    paddingLeft: rem(20),
     paddingTop: rem(10),
     paddingBottom: rem(10),
     fontFamily: "Montserrat, sans-serif",
+    height: "100%"
+  },
+  left: {
+    paddingLeft: rem(20),
+  },
+  center: {
+    justifyContent: "center",
   },
   redBox: {
     backgroundColor: "#F03E3E",
@@ -25,14 +30,25 @@ const useStyles = createStyles((theme) => ({
     height: rem(30),
     display: "flex",
     alignItems: "center",
+  },
+  bg: {
+    backgroundColor: "#F8F9FA",
+  },
+  noBg: {
+
   }
 }));
 
-export function Logo() {
+interface LogoProps {
+  placement: string
+  bg: boolean
+}
+
+export function Logo({ placement, bg }: LogoProps) {
   const { classes } = useStyles();
 
   return (
-    <div className={classes.container}>
+    <div className={`${classes.container} ${placement === "center" ? classes.center : classes.left} ${bg ? classes.bg : classes.noBg}`}>
       <h3 className={classes.logoHighlight}>
         book<div className={classes.redBox}>my</div>music
       </h3>

@@ -1,18 +1,32 @@
-import styles from "@/styles/page.module.css";
+import styles from "@/styles/page.module.scss";
 
 interface Props {
-  text: string;
-  size: number;
+  text: string
+  size: number
+  onClick?: (event: any) => void
+  type: "round" | "secondary" | "primary"
 }
 
-export default function Button({ text, size }: Props) {
+export default function Button({ text, size, onClick, type }: Props) {
   const buttonStyle = {
-    fontSize: `${size}rem`,
-    // backgroundColor: bgcolor,
-    fontFamily: "Roboto, Sans-Serifs",
+    fontSize: `${size - 0.15}rem`,
   };
+  let className = styles.button;
+  
+  if (type === "round") {
+    className = styles.roundButton;
+  } else if (type === "secondary") {
+    className = styles.secondaryButton;
+  }
 
-  return(
-    <button type="submit" className={styles.button} style={buttonStyle}>{text}</button>
-  )
+  return (
+    <button
+      type="submit"
+      className={className}
+      style={buttonStyle}
+      onClick={onClick}
+    >
+      {text}
+    </button>
+  );
 }

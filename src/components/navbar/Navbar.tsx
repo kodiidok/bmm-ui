@@ -6,6 +6,7 @@ import {
 } from '@tabler/icons-react';
 import { LinksGroup } from './NavbarLinksGroup';
 import { Logo } from '../logo/Logo';
+import styles from '@/styles/admin.module.scss';
 
 const mockdataCore = [
   { label: 'Dashboard', icon: IconGauge },

@@ -1,4 +1,4 @@
-import styles from "@/styles/page.module.css";
+import styles from "@/styles/page.module.scss";
 import { Search } from 'react-feather';
 
 export default function Searchbar() {

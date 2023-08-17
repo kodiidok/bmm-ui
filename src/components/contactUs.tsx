@@ -1,5 +1,5 @@
 import Button from "./button";
-import styles from "@/styles/page.module.css";
+import styles from "@/styles/page.module.scss";
 
 interface Props {
   text: string;
@@ -9,6 +9,15 @@ interface Props {
 }
 
 export default function ContactUs({text, line1, line2}:Props) {
+
+  const contactUsStyle = {
+    paddingTop: '100px',
+    paddingBottom: '100px',
+    backgroundColor: "#F8F9FA",
+    width: '100%',
+    marginTop: '50px'
+  }
+
   const headerStyle = {
     fontSize: 'small',
     paddingBottom: `1rem`,
@@ -21,9 +30,9 @@ export default function ContactUs({text, line1, line2}:Props) {
   };
 
   return (
-    <div className={styles.contactUs}>
+    <div className={styles.contactUs} style={contactUsStyle}>
       <div style={headerStyle}>Contact Us</div>
-      <Button size={2} text={text}/>
+      <Button size={2} text={text} type="round"/>
       <div className={styles.contactUs} style={descriptionStyle}>
         <div>{line1}</div>
         <div>{line2}</div>

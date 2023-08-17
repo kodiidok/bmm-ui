@@ -45,7 +45,13 @@ const mockdata = [
   { label: 'Electric', icon: IconGasStation },
 ];
 
-export function FeaturesCard({image, title, rating}) {
+interface FeaturesCardProps {
+  image: any;
+  title?: string;
+  rating: any;
+}
+
+export function FeaturesCard({image, title, rating}: FeaturesCardProps) {
   const { classes } = useStyles();
   const features = mockdata.map((feature) => (
     <Center key={feature.label}>

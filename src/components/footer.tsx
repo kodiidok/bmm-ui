@@ -1,4 +1,4 @@
-import styles from "@/styles/page.module.css";
+import styles from "@/styles/page.module.scss";
 
 export default function Footer() {
   const footerItems = [
@@ -10,7 +10,11 @@ export default function Footer() {
   ];
 
   return (
-    <footer>
+    <footer style={{
+      backgroundColor: '#252323',
+      paddingBottom: '40px',
+      width: '100%'
+    }}>
       <nav className={styles.footer}>
         <ul className={styles.footerList}>
           {footerItems.map((item, index) => (

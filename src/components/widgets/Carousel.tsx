@@ -1,5 +1,8 @@
+"use client"
+
 import { Carousel } from "@mantine/carousel";
-import { useMediaQuery } from "@mantine/hooks";
+// import { useMediaQuery } from "@mantine/hooks";
+import { useMediaQuery } from "@uidotdev/usehooks";
 import {
   createStyles,
   Group,
@@ -69,7 +72,7 @@ function Cardsdgf({ image, title, rating }: CardProps) {
         </div>
 
         <Group spacing={5}>
-          <IconStar size="1rem" />
+          <IconStar size="1rem" fill="#FFE066" color="#FFE066"/>
 
           <Text fz="xs" fw={500}>
             {rating}
@@ -80,46 +83,41 @@ function Cardsdgf({ image, title, rating }: CardProps) {
   );
 }
 
-const data = [
+const imgUrl =
+  "https://i1.sndcdn.com/artworks-NURJW9AoK2D2yyIc-2p6oJw-t500x500.jpg";
+const mockdata = [
   {
-    image:
-      "https://i1.sndcdn.com/artworks-NURJW9AoK2D2yyIc-2p6oJw-t500x500.jpg",
+    image: imgUrl,
     title: "daddy",
     rating: "4.8",
   },
   {
-    image:
-      "https://i1.sndcdn.com/artworks-NURJW9AoK2D2yyIc-2p6oJw-t500x500.jpg",
+    image: imgUrl,
     title: "daddy",
     rating: "4.8",
   },
   {
-    image:
-      "https://i1.sndcdn.com/artworks-NURJW9AoK2D2yyIc-2p6oJw-t500x500.jpg",
+    image: imgUrl,
     title: "daddy",
     rating: "4.8",
   },
   {
-    image:
-      "https://i1.sndcdn.com/artworks-NURJW9AoK2D2yyIc-2p6oJw-t500x500.jpg",
+    image: imgUrl,
     title: "daddy",
     rating: "4.8",
   },
   {
-    image:
-      "https://i1.sndcdn.com/artworks-NURJW9AoK2D2yyIc-2p6oJw-t500x500.jpg",
+    image: imgUrl,
     title: "daddy",
     rating: "4.8",
   },
   {
-    image:
-      "https://i1.sndcdn.com/artworks-NURJW9AoK2D2yyIc-2p6oJw-t500x500.jpg",
+    image: imgUrl,
     title: "daddy",
     rating: "4.8",
   },
   {
-    image:
-      "https://i1.sndcdn.com/artworks-NURJW9AoK2D2yyIc-2p6oJw-t500x500.jpg",
+    image: imgUrl,
     title: "daddy",
     rating: "4.8",
   },
@@ -127,44 +125,36 @@ const data = [
 
 export function CardsCarousel() {
   const theme = useMantineTheme();
-  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+  const mobile = useMediaQuery("(max-width: 600px)");
+  // const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
   const cardsPerSlide = 6;
-  const totalSlides = Math.ceil(data.length / cardsPerSlide);
-
+  const totalSlides = Math.ceil(mockdata.length / cardsPerSlide);
+  const slideSize = mobile ? "90%" : "30%";
   const slides: any = [];
 
   for (let slideIndex = 0; slideIndex < totalSlides; slideIndex++) {
     const startIdx = slideIndex * cardsPerSlide;
-    const endIdx = Math.min(startIdx + cardsPerSlide, data.length);
-    const slideData = data.slice(startIdx, endIdx);
+    const endIdx = Math.min(startIdx + cardsPerSlide, mockdata.length);
+    const slideData = mockdata.slice(startIdx, endIdx);
 
-    // slides.push(
-    //   <Carousel.Slide key={slideIndex}>
-    //     <Group style={{ justifyContent: "center" }} align="center">
-    //       {slideData.map((item, itemIndex) => (
-    //         <Cardsdgf key={itemIndex} {...item} />
-    //       ))}
-    //     </Group>
-    //   </Carousel.Slide>
-    // );
-  
-    slideData.map((item, itemIndex) => (
+    slideData.map((item, itemIndex) =>
       slides.push(
         <Carousel.Slide key={slideIndex}>
           <Cardsdgf key={itemIndex} {...item} />
         </Carousel.Slide>
       )
-    ))
+    );
   }
 
   return (
-    <div style={{ padding: "0rem" }}>
+    <div className="" style={{ padding: "0rem" }}>
       <Carousel
-        slideSize="20%"
-        breakpoints={[{ maxWidth: "xl", slideSize: "80%", slideGap: rem(5) }]}
-        slideGap="xl"
+        slideSize={slideSize}
+        breakpoints={[
+          { maxWidth: "xl", slideSize: slideSize, slideGap: rem(10) },
+        ]}
         align="start"
-        // slidesToScroll={2} // Adjust this value
+        slidesToScroll={totalSlides}
       >
         {slides}
       </Carousel>
