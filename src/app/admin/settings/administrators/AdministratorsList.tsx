@@ -1,5 +1,5 @@
 import React from 'react';
-import '../app/page.module.css';
+import '@/styles/page.module.css';
 
 interface Administrator {
   id: string;

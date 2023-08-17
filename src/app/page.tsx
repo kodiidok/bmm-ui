@@ -12,7 +12,7 @@ export default function Home() {
         padding: 0,
       }}
     >
-      <Shell children={<p>Welcome to bookmymusic</p>} />
+      <Shell children={<></>} />
     </main>
   );
 }
