@@ -14,7 +14,7 @@ import {
 import { useState, useEffect } from 'react';
 
 import { useMutation, gql, useQuery } from '@apollo/client';
-import client from '../../../graphql-client';
+import client from '../../../graphql-client/graphql-shop-client';
 
 const LOGIN_MUTATION = gql`
     mutation Login($username: String!, $password: String!, $rememberMe: Boolean!) {
@@ -35,7 +35,7 @@ const TOTAL_PRODUCTS_QUERY = gql`
     }
 `;
 
-export function AuthenticationForm() {
+export function ShopAuthenticationForm() {
     const [initialRenderComplete, setInitialRenderComplete] = useState(false);
     // This useEffect will only run once, during the first render
     useEffect(() => {

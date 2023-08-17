@@ -1,4 +1,4 @@
-import styles from '../../app/page.module.css';
+import styles from '@/styles/page.module.css';
 
 import { NavbarNested } from '@/components/navbar/Navbar';
 import { UserButton } from '../button/UserButton';

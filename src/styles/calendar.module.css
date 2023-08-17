@@ -1,0 +1,86 @@
+/* CalendarContainer styles */
+.calendarContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* CalendarTable styles */
+  .calendarTable {
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 800px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Table Header styles */
+  .calendarTable th {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-weight: bold;
+  }
+  
+  /* Table Body styles */
+  .calendarTable td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    vertical-align: top;
+  }
+  
+  /* Time cell styles */
+  .timeCell {
+    font-weight: bold;
+    width: 70px;
+    text-align: center;
+    background-color: #f5f5f5;
+  }
+  
+  /* Notification cell styles */
+  .notificationCell {
+    background-color: #e0e0e0;
+    min-height: 40px;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 600px) {
+    .calendarTable {
+      width: 100%;
+    }
+  }
+
+
+  .navbar {
+    /* background-color: #f8f8f8; */
+    /* padding: 10px; */
+    border-radius: 10px;
+    font-size: small;
+    width: 390px;
+    /* font-weight: bold; */
+  }
+  
+  .navbarList {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbarItem {
+    margin-right: 10px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #252323;
+  }
+  
+  .navbarItem:hover {
+    background-color: #CCCCCC;
+  }
+  
+  .navbarItem:last-child {
+    margin-right: 0;
+  }
+  
