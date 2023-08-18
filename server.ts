@@ -1,50 +1,53 @@
-import { createProxyServer } from 'http-proxy';
-import { createServer } from 'http';
-import { parse } from 'url';
-import next from 'next';
-import nextConfig from './next.config.js';
+import { createProxyServer } from "http-proxy";
+import { createServer } from "http";
+import { parse } from "url";
+import next from "next";
+import nextConfig from "./next.config.js";
 
-const dev = process.env.NODE_ENV !== 'production';
-const hostname = 'localhost';
+const dev = process.env.NODE_ENV !== "production";
+const hostname = "localhost";
 const port = 3030;
 const customServer = true;
 const conf = nextConfig;
 
 const proxy = createProxyServer({});
-const adminApi = 'http://localhost:3000/admin-api';
+const adminApi = "http://localhost:3000/admin-api";
+const shopApi = "http://localhost:3000/shop-api";
 
 const app = next({
   dev,
   hostname,
   port,
   customServer,
-  conf
+  conf,
 });
 
 const handle = app.getRequestHandler();
- 
+
 app.prepare().then(() => {
   createServer((req, res) => {
     try {
-      const parsedUrl = parse(req.url ?? '', true)
-      const { pathname, query } = parsedUrl
- 
-      if (pathname === '/admin-api') {
+      const parsedUrl = parse(req.url ?? "", true);
+      const { pathname, query } = parsedUrl;
+
+      if (pathname === "/admin-api") {
         proxy.web(req, res, { target: adminApi });
+      } else if (pathname === "/shop-api") {
+        proxy.web(req, res, { target: shopApi });
       } else {
-        handle(req, res, parsedUrl)
+        handle(req, res, parsedUrl);
       }
     } catch (err) {
-      console.error('Error occurred handling', req.url, err)
-      res.statusCode = 500
-      res.end('internal server error')
+      console.error("Error occurred handling", req.url, err);
+      res.statusCode = 500;
+      res.end("internal server error");
     }
   })
-    .once('error', (err) => {
-      console.error(err)
-      process.exit(1)
+    .once("error", (err) => {
+      console.error(err);
+      process.exit(1);
     })
     .listen(port, () => {
-      console.log(`> Ready on http://${hostname}:${port}`)
-    })
-})
+      console.log(`> Ready on http://${hostname}:${port}`);
+    });
+});

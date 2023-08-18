@@ -1,16 +1,20 @@
 import styles from "@/styles/page.module.scss";
 import NavbarItem from "./navBarItem";
 
-export default function Navbar() {
-  const itemList = ["dashboard", "artists", "bands", "events", "about us"];
+interface NavbarProps {
+  items: string[];
+}
+
+export default function Navbar({ items }: NavbarProps) {
+  // const itemList = ["dashboard", "artists", "bands", "events", "about us"];
 
   return (
     <div>
       <nav className={styles.navbar}>
         <ul className={styles.navbarList}>
-          {itemList.map((item) => (
+          {items.map((item) => (
             <li key={item} className={styles.navbarItem}>
-              <NavbarItem text={item}/>
+              <NavbarItem text={item} />
             </li>
           ))}
         </ul>

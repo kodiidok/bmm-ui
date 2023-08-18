@@ -50,7 +50,7 @@ export function ShopAuthenticationForm() {
     const [userId, setUserId] = useState(null);
 
     const [loginMutation] = useMutation(LOGIN_MUTATION, { client });
-    const { loading, error, data } = useQuery(TOTAL_PRODUCTS_QUERY, { client, skip: !userId });
+    const { loading, error, data } = useQuery(TOTAL_PRODUCTS_QUERY, { client });
 
     const handleSignIn = async () => {
         try {
@@ -134,7 +134,7 @@ export function ShopAuthenticationForm() {
                         )}
 
                         {/* display the total number of products here */}
-                        {userId && data && (
+                        {data && (
                             <div style={{ marginTop: '20px', textAlign: 'center' }}>
                                 Total Products: {data.products.totalItems}
                             </div>

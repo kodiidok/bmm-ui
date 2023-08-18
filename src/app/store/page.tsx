@@ -13,9 +13,38 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { CardsCarousel } from "@/components/widgets/Carousel";
 import { CarouselEvent } from "@/components/carousel/CarouselEvent";
 import { createStyles, getStylesRef, rem } from "@mantine/core";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMediaQuery } from "@uidotdev/usehooks";
+
+import { useState, useEffect } from "react";
+import { useMutation, gql, useQuery } from "@apollo/client";
+import client from "../../../graphql-client/graphql-shop-client";
+
+// const LOGIN_MUTATION = gql`
+//     mutation Login($username: String!, $password: String!, $rememberMe: Boolean!) {
+//         login(username: $username, password: $password, rememberMe: $rememberMe) {
+//             ... on CurrentUser {
+//                 id
+//             }
+//             __typename
+//         }
+//     }
+// `;
+
+const ARTIST_QUERY = gql`
+  {
+  performer(id: 2) {
+    id
+    name
+    type
+    createdAt
+    updatedAt
+    deletedAt
+    description
+    rating
+  }
+}
+`;
 
 const useStyles = createStyles((theme) => ({
   price: {
@@ -71,6 +100,16 @@ export default function Page() {
   const mobile = useMediaQuery("(max-width: 600px)");
   const slideSize = mobile ? "90%" : "30%";
 
+  const [userId, setUserId] = useState(null);
+  const [initialRenderComplete, setInitialRenderComplete] = useState(false);
+  // This useEffect will only run once, during the first render
+  useEffect(() => {
+    // Updating a state causes a re-render
+    setInitialRenderComplete(true);
+  }, []);
+
+  const { loading, error, data } = useQuery(ARTIST_QUERY, { client });
+
   return (
     <main className={styles.main}>
       <div
@@ -81,7 +120,7 @@ export default function Page() {
       >
         <Logo placement="center" bg={true} />
       </div>
-      <Navbar />
+      <Navbar items={["dashboard", "artists", "bands", "events", "about us"]} />
       <div className={styles.searchSection}>
         <Searchbar />
         <Button
@@ -174,7 +213,7 @@ export default function Page() {
               slideGap={rem(10)}
               slideSize={slideSize}
               style={{
-                width: "100%"
+                width: "100%",
               }}
             >
               {Array.from({ length: 4 }).map((_, index) => (
