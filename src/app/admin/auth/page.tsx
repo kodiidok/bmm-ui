@@ -1,6 +1,6 @@
 "use client"
 
-import { AdminAuthenticationForm } from '@/components/forms/AdminAuthenticationForm'
+import { AdminAuthenticationForm } from '@/components/forms/adminAuthenticationForm'
 import styles from '@/styles/page.module.scss'
 
 export default function Home() {

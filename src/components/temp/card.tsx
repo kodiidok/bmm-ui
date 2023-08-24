@@ -1,5 +1,5 @@
-import { Card, Image, Text, Group, createStyles, rem } from '@mantine/core';
-import { IconStar} from '@tabler/icons-react';
+import { Card, Image, Text, Group, Badge, createStyles, Center, Button, rem } from '@mantine/core';
+import { IconGasStation, IconGauge, IconManualGearbox, IconStar, IconUsers } from '@tabler/icons-react';
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -38,33 +38,44 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+const mockdata = [
+  { label: '4 passengers', icon: IconUsers },
+  { label: '100 km/h in 4 seconds', icon: IconGauge },
+  { label: 'Automatic gearbox', icon: IconManualGearbox },
+  { label: 'Electric', icon: IconGasStation },
+];
 
-
-interface Props{
-  image:string;
-  rating:string;
-  title:string;
+interface FeaturesCardProps {
+  image: any;
+  title?: string;
+  rating: any;
 }
-export function FeaturesCard(props:Props) {
+
+export function FeaturesCard({image, title, rating}: FeaturesCardProps) {
   const { classes } = useStyles();
-  
+  const features = mockdata.map((feature) => (
+    <Center key={feature.label}>
+      <feature.icon size="1.05rem" className={classes.icon} stroke={1.5} />
+      <Text size="xs">{feature.label}</Text>
+    </Center>
+  ));
 
   return (
     <Card withBorder radius="md" className={classes.card}>
       <Card.Section className={classes.imageSection}>
-      <Image src={props.image} height={220} />
+      <Image src={image} height={220} />
       </Card.Section>
 
       <Group position="apart" mt="md">
         <div>
-          <Text fw={500}>{props.title}</Text>
+          <Text fw={500}>{title}</Text>
         </div>
         
         <Group spacing={5}>
             <IconStar size="1rem"/>
             
             <Text fz="xs" fw={500}>
-              {props.rating}
+              {rating}
             </Text>
             
           </Group>

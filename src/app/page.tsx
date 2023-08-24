@@ -1,6 +1,6 @@
 "use client";
 
-import { Logo } from "@/components/logo/Logo";
+import { Logo } from "@/components/common/logo";
 import styles from "@/styles/page.module.scss";
 
 export default function Home() {

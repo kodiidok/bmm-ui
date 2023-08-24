@@ -1,21 +1,21 @@
 "use client";
 
-import { Logo } from "@/components/logo/Logo";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import { Logo } from "@/components/common/logo";
+import Navbar from "@/components/navbar/navbar";
+import Footer from "@/components/common/footer";
 import Searchbar from "@/components/searchbar";
-import Button from "@/components/button";
-import ContactUs from "@/components/contactUs";
+import Button from "@/components/button/button";
+import ContactUs from "@/components/common/contactUs";
 import styles from "@/styles/admin.module.scss";
 import { Carousel } from "@mantine/carousel";
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { CardsCarousel } from "@/components/widgets/Carousel";
-import { CarouselEvent } from "@/components/carousel/CarouselEvent";
+import { CardsCarousel } from "@/components/widgets/carousel";
+import { CarouselEvent } from "@/components/carousel/carouselEvent";
 import { createStyles, getStylesRef, rem } from "@mantine/core";
 import { useRouter } from "next/navigation";
 import { useMediaQuery } from "@uidotdev/usehooks";
-import Shell from "@/components/shell/Shell";
+import Shell from "@/components/shell/shell";
 
 export default function Page() {
   const router = useRouter();

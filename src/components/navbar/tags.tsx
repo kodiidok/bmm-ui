@@ -1,7 +1,7 @@
-import styles from "@/styles/page.module.css";
-import NavbarItem from "@/components/navBarItem";
+import styles from "@/styles/page.module.scss";
+import NavbarItem from "@/components/navbar/navBarItem";
 
-export default function ArtistNavbar() {
+export default function Tags() {
   const itemList = ["live", "outdoor", "wedding", "mashup"];
 
   return (

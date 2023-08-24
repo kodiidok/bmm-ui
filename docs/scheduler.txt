@@ -1,0 +1,24 @@
+*version 1*
+
+create a table with 3 rows and n columns.
+
+- top row for header: days (mon 07, tue 08, wed 09 ...)
+- 2nd row: morning
+- 3rd row: evening
+
+- n cols should be decided by a date range
+- for this, use 2 date inputs: for date-start and date-end
+- each date input should have a mini calendar where the user can select the date
+- use these 2 dates to calculate the n, and render n coloumns for the table. 
+- whenever n chages, the ncols of table should update: can use something like this *useEffect(()=>{}, [n]);*
+
+- each cell in the table should be clickable: have a button in each cell and make it invisible using css.
+- this way, we can add an event handler to the cells, to show a popup with the details of the cell.
+
+a cell must show a list of events. 
+
+so, overall we need to have the following components:
+- Scheduler
+- SchedulerCell
+- DateRangeSelector
+- SchedulerCellEvents

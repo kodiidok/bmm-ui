@@ -1,4 +1,4 @@
-import styles from "@/styles/page.module.css";
+import styles from "@/styles/page.module.scss";
 
 interface Props {
   text: string;
@@ -23,7 +23,7 @@ export default function IconButton({ text, size, icon }: Props) {
   };
 
   return (
-    <button type="submit" className={styles.button} style={buttonStyle}>
+    <button type="submit" className={styles.roundButton} style={buttonStyle}>
       <span style={iconStyle}>{icon}</span> {text}
     </button>
   );

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Table, Text } from '@mantine/core'; 
 import styles from '@/styles/Calendar.module.css'; // Import your CSS styles
 // import styles from '@/styles/page.module.css';
-import NavbarItem from '@/components/navBarItem';
+import NavbarItem from '@/components/navbar/navBarItem';
 
 interface Props {
   dates: string[]; // Array of date strings (e.g., ["Aug 1", "Aug 2", ...])
@@ -23,7 +23,7 @@ const CalendarNotification: React.FC<Props> = ({ dates, times, notifications }) 
             key={item}
             className={`${styles.navbarItem} ${selectedItem === item ? styles.activeItem : ''}`}
           >
-            <NavbarItem text={item} onClick={() => setSelectedItem(item)} />
+            {/* <NavbarItem text={item} onClick={() => setSelectedItem(item)} /> */}
           </li>
         ))}
       </ul>

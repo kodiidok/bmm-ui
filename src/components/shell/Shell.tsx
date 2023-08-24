@@ -2,8 +2,8 @@
 import styles from '@/styles/admin.module.scss';
 
 
-import { NavbarNested } from '@/components/navbar/Navbar';
-import { UserButton } from '../button/UserButton';
+import { NavbarNested } from '@/components/navbar/adminNavbar';
+import { UserButton } from '../button/userButton';
 import { Button, rem } from '@mantine/core';
 
 interface ShellProps {

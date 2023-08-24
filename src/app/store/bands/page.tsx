@@ -1,19 +1,19 @@
 "use client";
-import Logo from "@/components/logo";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import Logo from "@/components/logo/logo";
+import Navbar from "@/components/navbar/navbar";
+import Footer from "@/components/common/footer";
 import Searchbar from "@/components/searchbar";
-import Button from "@/components/button";
-import ContactUs from "@/components/contactUs";
+import Button from "@/components/button/button";
+import ContactUs from "@/components/common/contactUs";
 import styles from "@/styles/page.module.css";
 import { CarouselCard } from "@/components/carousel";
 import { CarouselEvent } from "@/components/carouselEvent";
 import { Group, Text } from "@mantine/core";
 import { IconStar, IconBookmark, IconBookmarkFilled } from "@tabler/icons-react";
 import ArtistNavbar from "./NavBar";
-import IconButton from "@/components/IconButton";
-import CalendarNotification from '@/components/Calendar';
-import EventTable from "@/components/EventTable";
+import IconButton from "@/components/button/iconButton";
+import CalendarNotification from '@/components/calendar/calendar';
+import EventTable from "@/components/table/eventTable";
 
 // import { useEffect, useState } from 'react';
 

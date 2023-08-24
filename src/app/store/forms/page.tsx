@@ -2,11 +2,11 @@
 import styles from "@/styles/page.module.css";
 import React, { useState } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { TicketCard } from "@/components/TicketCard";
-import EventTickets from "@/components/forms/EventTickets";
-import EventTable from "@/components/EventTable";
-import { CardsCarousel } from "@/widgets/Carousel";
-import { FeaturesCard } from "@/widgets/card";
+import { TicketCard } from "@/components/carousel/ticketCard";
+import EventTickets from "@/components/forms/eventTickets";
+import EventTable from "@/components/table/eventTable";
+import { CardsCarousel } from "@/components/carousel/cardsCarousel";
+import { FeaturesCard } from "@/components/carousel/card";
 
 // import { useEffect, useState } from 'react';
 

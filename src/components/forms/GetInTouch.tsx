@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Input, Textarea, Select, Button, Checkbox, TextInput } from '@mantine/core';
-import PhoneInput from '../PhoneInput';
+import PhoneInput from '../input/phoneInput';
 
 interface Props{
   text:string;

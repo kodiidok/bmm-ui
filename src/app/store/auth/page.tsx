@@ -1,8 +1,8 @@
 "use client";
 
-import Footer from "@/components/footer";
-import { ShopAuthenticationForm } from "@/components/forms/ShopAuthenticationForm";
-import { Logo } from "@/components/logo/Logo";
+import Footer from "@/components/common/footer";
+import { ShopAuthenticationForm } from "@/components/forms/shopAuthenticationForm";
+import { Logo } from "@/components/common/logo";
 import styles from "@/styles/page.module.scss";
 
 export default function Home() {

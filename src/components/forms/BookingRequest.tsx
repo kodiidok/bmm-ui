@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Input, Textarea, Select, Button, Checkbox, TextInput } from '@mantine/core';
-import InputTime from '../TimeInput';
-import DateInput from '../DateInput';
-import SelectInput from '../SelectInput';
-import PhoneInput from '../PhoneInput';
+import InputTime from '../input/timeInput';
+import DateInput from '../input/dateInput';
+import SelectInput from '../input/selectInput';
+import PhoneInput from '../input/phoneInput';
 
 interface Props{
   text:string;

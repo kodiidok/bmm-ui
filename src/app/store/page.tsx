@@ -1,17 +1,17 @@
 "use client";
 
-import { Logo } from "@/components/logo/Logo";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
-import Searchbar from "@/components/searchbar";
-import Button from "@/components/button";
-import ContactUs from "@/components/contactUs";
+import { Logo } from "@/components/common/logo";
+import Navbar, { NavbarItemProps } from "@/components/navbar/navbar";
+import Footer from "@/components/common/footer";
+import Searchbar from "@/components/input/searchbar";
+import Button from "@/components/button/button";
+import ContactUs from "@/components/common/contactUs";
 import styles from "@/styles/store.module.scss";
 import { Carousel } from "@mantine/carousel";
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { CardsCarousel } from "@/components/widgets/Carousel";
-import { CarouselEvent } from "@/components/carousel/CarouselEvent";
+import { CardsCarousel } from "@/components/carousel/carousel";
+import { CarouselEvent } from "@/components/carousel/carouselEvent";
 import { createStyles, getStylesRef, rem } from "@mantine/core";
 import { useRouter } from "next/navigation";
 import { useMediaQuery } from "@uidotdev/usehooks";
@@ -33,17 +33,17 @@ import client from "../../../graphql-client/graphql-shop-client";
 
 const ARTIST_QUERY = gql`
   {
-  performer(id: 2) {
-    id
-    name
-    type
-    createdAt
-    updatedAt
-    deletedAt
-    description
-    rating
+    performer(id: 2) {
+      id
+      name
+      type
+      createdAt
+      updatedAt
+      deletedAt
+      description
+      rating
+    }
   }
-}
 `;
 
 const useStyles = createStyles((theme) => ({
@@ -110,6 +110,30 @@ export default function Page() {
 
   const { loading, error, data } = useQuery(ARTIST_QUERY, { client });
 
+  const baseUrl = "/store";
+  const navbarItems: NavbarItemProps[] = [
+    {
+      text: "dashboard",
+      href: baseUrl,
+    },
+    {
+      text: "artists",
+      href: `${baseUrl}/artists`,
+    },
+    {
+      text: "bands",
+      href: `${baseUrl}/bands`,
+    },
+    {
+      text: "events",
+      href: `${baseUrl}/events`,
+    },
+    {
+      text: "settings",
+      href: `${baseUrl}/settings`,
+    },
+  ];
+
   return (
     <main className={styles.main}>
       <div
@@ -120,7 +144,7 @@ export default function Page() {
       >
         <Logo placement="center" bg={true} />
       </div>
-      <Navbar items={["dashboard", "artists", "bands", "events", "about us"]} />
+      <Navbar items={navbarItems} />
       <div className={styles.searchSection}>
         <Searchbar />
         <Button
