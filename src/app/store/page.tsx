@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation";
 import { useMediaQuery } from "@uidotdev/usehooks";
 
 import { useState, useEffect } from "react";
+
 import { useMutation, gql, useQuery } from "@apollo/client";
 import client from "../../../graphql-client/graphql-shop-client";
 
