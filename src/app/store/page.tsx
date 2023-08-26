@@ -228,7 +228,7 @@ export default function Page() {
           <div className={styles.carouselAlign}>
             <Carousel
               withIndicators
-              loop
+              loop={true}
               classNames={{
                 root: classes.carousel,
                 controls: classes.carouselControls,

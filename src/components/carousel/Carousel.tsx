@@ -29,9 +29,8 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    borderBottom: `${rem(1)} solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[3]
-    }`,
+    borderBottom: `${rem(1)} solid ${theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[3]
+      }`,
   },
 
   title: {
@@ -72,7 +71,7 @@ function Cardsdgf({ image, title, rating }: CardProps) {
         </div>
 
         <Group spacing={5}>
-          <IconStar size="1rem" fill="#FFE066" color="#FFE066"/>
+          <IconStar size="1rem" fill="#FFE066" color="#FFE066" />
 
           <Text fz="xs" fw={500}>
             {rating}
@@ -150,9 +149,13 @@ export function CardsCarousel() {
     <div className="" style={{ padding: "0rem" }}>
       <Carousel
         slideSize={slideSize}
-        breakpoints={[
-          { maxWidth: "xl", slideSize: slideSize, slideGap: rem(10) },
-        ]}
+        // breakpoints={[
+        //   { maxWidth: "xl", slideSize: slideSize, slideGap: rem(10) },
+        // ]}
+        slideGap={rem(10)}
+        style={{
+          width: "100%",
+        }}
         align="start"
         slidesToScroll={totalSlides}
       >

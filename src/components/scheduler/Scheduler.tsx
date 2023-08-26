@@ -12,7 +12,7 @@ export default function Sheduler() {
           display: "flex",
           justifyContent: "space-between",
           marginTop: "2rem",
-          // height: "35px",
+          height: "35px",
           paddingBottom: "1rem",
         }}
       >
