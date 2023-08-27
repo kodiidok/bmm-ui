@@ -19,8 +19,8 @@ const useStyles = createStyles((theme) => ({
     textAlign: 'center',
     borderRadius: theme.radius.md,
     overflow: 'hidden',
-    border: `2px solid ${theme.colors.gray[2]}`,
-    backgroundColor: theme.colors.gray[2],
+    border: `2px solid ${theme.colors.gray[1]}`,
+    backgroundColor: theme.colors.gray[1],
     gap: '2px'
   },
   scrollableContainer: {
