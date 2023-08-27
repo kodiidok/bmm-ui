@@ -21,7 +21,6 @@ import { useState, useEffect } from "react";
 import { useMutation, gql, useQuery } from "@apollo/client";
 import client from "../../../../graphql-client/graphql-shop-client";
 import Scheduler from "@/components/scheduler/Scheduler";
-import DateRangeSelector from "@/components/scheduler/DateRangeSelector";
 
 // const LOGIN_MUTATION = gql`
 //     mutation Login($username: String!, $password: String!, $rememberMe: Boolean!) {
