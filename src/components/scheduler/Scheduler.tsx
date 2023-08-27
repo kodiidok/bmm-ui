@@ -3,6 +3,9 @@ import { DataTable } from 'mantine-datatable';
 import { useEffect, useState } from 'react';
 import { DatePicker } from '@mantine/dates';
 import { ScrollArea, createStyles, useMantineTheme } from '@mantine/core';
+import WbSunnyRoundedIcon from '@mui/icons-material/WbSunnyRounded';
+import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
+import EventRoundedIcon from '@mui/icons-material/EventRounded';
 
 export interface DateInfo {
   day: string;
@@ -53,6 +56,13 @@ const useStyles = createStyles((theme) => ({
     alignItems: 'center',
     backgroundColor: 'white',
   },
+  timeCell: {
+    minWidth: 50,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    backgroundColor: 'white',
+  },
   day: {
     minHeight: 20,
     backgroundColor: 'white',
@@ -97,11 +107,13 @@ const useStyles = createStyles((theme) => ({
   },
   viewDateRange: {
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     minWidth: '240px',
     backgroundColor: '#F1F3F5',
     padding: '0.5rem',
-    borderRadius: '0.5rem'
+    borderRadius: '0.5rem',
+    gap: '0.5rem'
   },
   datePicker: {
     position: 'absolute',
@@ -112,7 +124,6 @@ const useStyles = createStyles((theme) => ({
   dateSlotContainer: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '2px'
   },
   dateSlot: {
     minHeight: '100px',
@@ -164,15 +175,27 @@ export const createSchedule = (dateArray: DateInfo[]) => {
   return (
     <div className={classes.container}>
       <div className={classes.month}>
-        <div className={classes.monthName} style={{ textAlign: 'left' }}></div>
-        <div className={classes.hrLine} />
+        <div className={classes.monthName} style={{ textAlign: 'left', backgroundColor: theme.colors.gray[8] }}></div>
+        <div className={classes.hrLine} style={{ backgroundColor: theme.colors.gray[8] }} />
         <div className={classes.datesWrapper}>
-          <div className={classes.dateCell}>
+          <div className={classes.timeCell}>
             <div style={{ width: '100%' }}>
-              <div className={classes.day}></div>
-              <div className={classes.dateSlotContainer} style={{ color: theme.colors.gray[6]}}>
-                <div className={classes.dateSlot}>morning</div>
-                <div className={classes.dateSlot}>evening</div>
+              <div
+                className={classes.day}
+                style={{ backgroundColor: theme.colors.gray[8] }}
+              ></div>
+              <div
+                className={classes.dateSlotContainer}
+                style={{ color: theme.colors.gray[6] }}
+              >
+                <div
+                  className={classes.dateSlot}
+                  style={{ backgroundColor: theme.colors.gray[8] }}
+                ><WbSunnyRoundedIcon /></div>
+                <div
+                  className={classes.dateSlot}
+                  style={{ backgroundColor: theme.colors.gray[8] }}
+                ><DarkModeRoundedIcon /></div>
               </div>
             </div>
           </div>
@@ -225,6 +248,13 @@ export default function Sheduler() {
   const [ncols, setNcols] = useState(7);
 
   useEffect(() => {
+    const currentDate = new Date();
+    const seventhDate = new Date();
+    seventhDate.setDate(currentDate.getDate() + 7);
+    setDateRange([currentDate, seventhDate]);
+  }, []);
+
+  useEffect(() => {
     if (dateRange[0] != null && dateRange[1] != null) {
       formatDataRange(dateRange);
     }
@@ -251,7 +281,10 @@ export default function Sheduler() {
         <h2 className={classes.schedule}>Schedule</h2>
         <div className={classes.datePickerContainer}>
           <div className={classes.viewDateRange} onClick={handleDatePickerVisibility}>
-            <div style={{ fontSize: '0.9rem' }}>{formattedDateRange}</div>
+            <div style={{ fontSize: '0.9rem', paddingLeft: '0.5rem' }}>
+              {formattedDateRange}
+            </div>
+            <EventRoundedIcon />
           </div>
           <DatePicker className={classes.datePicker} type="range" allowSingleDateInRange value={dateRange} onChange={setDateRange} display={datePickerVisibility.toString()} />
         </div>
