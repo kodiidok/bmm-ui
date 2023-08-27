@@ -135,6 +135,14 @@ const useStyles = createStyles((theme) => ({
   }
 }));
 
+/**
+ * The function `createDateArrayFromRange` takes a date range and returns an array of date information
+ * objects, including the day, month, and date.
+ * @param dateRange - An array of two elements, where each element is either a Date object or null. The
+ * first element represents the start date of the range, and the second element represents the end date
+ * of the range.
+ * @returns an array of objects of type `DateInfo`.
+ */
 export function createDateArrayFromRange(dateRange: [Date | null, Date | null]): DateInfo[] {
 
   const [startDate, endDate] = dateRange;
@@ -165,6 +173,7 @@ export const createSchedule = (dateArray: DateInfo[]) => {
 
   const groupedDates: { [month: string]: DateInfo[] } = {};
 
+  /* grouping dates based on the month. */
   dateArray.forEach(dateInfo => {
     if (!groupedDates[dateInfo.month]) {
       groupedDates[dateInfo.month] = [];
@@ -245,9 +254,9 @@ export default function Sheduler() {
   const [datePickerVisibility, setDatePickerVisibility] = useState<string>('none');
   const [formattedDateRange, setFormattedDateRange] = useState('Select Date Range');
   const [year, setYear] = useState(2023);
-  const [ncols, setNcols] = useState(7);
 
   useEffect(() => {
+    /* setting the initial date range for the scheduler, starting from today to 7 days after. */
     const currentDate = new Date();
     const seventhDate = new Date();
     seventhDate.setDate(currentDate.getDate() + 7);
@@ -264,6 +273,13 @@ export default function Sheduler() {
     datePickerVisibility === 'none' ? setDatePickerVisibility('block') : setDatePickerVisibility('none');
   }
 
+  /**
+   * The function `formatDataRange` takes a date range as input and formats it into a string
+   * representation.
+   * @param dateRange - The `dateRange` parameter is an array of two elements, where each element can
+   * be either a `Date` object or `null`. The first element represents the start date, and the second
+   * element represents the end date.
+   */
   const formatDataRange = (dateRange: [Date | null, Date | null]) => {
     const [start, end] = dateRange;
     let formattedStart = '';
@@ -272,6 +288,10 @@ export default function Sheduler() {
       formattedStart = start.toDateString().substring(4, 10);
       formattedEnd = end.toDateString().substring(4, 10);
     }
+    /**
+     * if the `formattedStart` and `formattedEnd` are equal, then store only the start date.
+     * else save the date range.
+     */
     formattedStart === formattedEnd ? setFormattedDateRange(formattedStart) : setFormattedDateRange(`${formattedStart} - ${formattedEnd}`);
   }
 
