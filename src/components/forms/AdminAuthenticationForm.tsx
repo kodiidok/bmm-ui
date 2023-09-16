@@ -11,7 +11,7 @@ import {
     Button,
     MantineProvider,
 } from '@mantine/core';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 
 import { useMutation, gql, useQuery } from '@apollo/client';
 import client from '../../../graphql-client/graphql-admin-client';
@@ -35,6 +35,24 @@ const TOTAL_PRODUCTS_QUERY = gql`
     }
 `;
 
+const PERFORMERS_QUERY = gql`
+    {
+        performers(options: {}) {
+            items {
+                id
+                name
+                type
+                createdAt
+                updatedAt
+                deletedAt
+                description
+                rating
+            }
+            totalItems
+        }
+    }
+`;
+
 export function AdminAuthenticationForm() {
     const [initialRenderComplete, setInitialRenderComplete] = useState(false);
     // This useEffect will only run once, during the first render
@@ -50,7 +68,8 @@ export function AdminAuthenticationForm() {
     const [userId, setUserId] = useState(null);
 
     const [loginMutation] = useMutation(LOGIN_MUTATION, { client });
-    const { loading, error, data } = useQuery(TOTAL_PRODUCTS_QUERY, { client, skip: !userId });
+    // const { loading, error, data } = useQuery(TOTAL_PRODUCTS_QUERY, { client, skip: !userId });
+    const { loading, error, data } = useQuery(PERFORMERS_QUERY, { client, skip: !userId });
 
     const handleSignIn = async () => {
         try {
@@ -136,7 +155,7 @@ export function AdminAuthenticationForm() {
                         {/* display the total number of products here */}
                         {userId && data && (
                             <div style={{ marginTop: '20px', textAlign: 'center' }}>
-                                Total Products: {data.products.totalItems}
+                                All Performers: {data.performers}
                             </div>
                         )}
                     </Container>
