@@ -18,6 +18,7 @@ import Tags from "../../../components/navbar/tags";
 import IconButton from "@/components/button/iconButton";
 import CalendarNotification from "@/components/calendar/calendar";
 import EventTable from "@/components/table/eventTable";
+import Scheduler from "@/components/scheduler/Scheduler";
 
 // import { useEffect, useState } from 'react';
 
@@ -30,21 +31,21 @@ export default function Page() {
   //     .then((data) => setMessage(data));
   // }, []);
 
-  // Your array of image URLs
-  const title = "daddy";
-  const rating = "4.8";
-  const description = "Relax, rejuvenate and unplug...";
-  const price = "397$";
+  // // Your array of image URLs
+  // const title = "daddy";
+  // const rating = "4.8";
+  // const description = "Relax, rejuvenate and unplug...";
+  // const price = "397$";
 
-  const images = [
-    "https://i1.sndcdn.com/artworks-NURJW9AoK2D2yyIc-2p6oJw-t500x500.jpg",
-  ];
-  const images2 = [
-    "https://i1.sndcdn.com/artworks-NURJW9AoK2D2yyIc-2p6oJw-t500x500.jpg",
-  ];
-  const images3 = [
-    "https://i1.sndcdn.com/artworks-NURJW9AoK2D2yyIc-2p6oJw-t500x500.jpg",
-  ];
+  // const images = [
+  //   "https://i1.sndcdn.com/artworks-NURJW9AoK2D2yyIc-2p6oJw-t500x500.jpg",
+  // ];
+  // const images2 = [
+  //   "https://i1.sndcdn.com/artworks-NURJW9AoK2D2yyIc-2p6oJw-t500x500.jpg",
+  // ];
+  // const images3 = [
+  //   "https://i1.sndcdn.com/artworks-NURJW9AoK2D2yyIc-2p6oJw-t500x500.jpg",
+  // ];
 
   const dates = ["Aug 1", "Aug 2", "Aug 3", "Aug 4", "Aug 5"];
   const times = ["9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM"];
@@ -153,41 +154,26 @@ export default function Page() {
           style={{
             textAlign: "center",
             justifyContent: "center",
-            padding: "3rem 7rem",
+            // padding: "3rem 7rem",
+            // width: "90%",
+            
           }}
         >
           <div
             style={{
               textAlign: "center",
               justifyContent: "center",
-              padding: "3rem 7rem",
+              // padding: "3rem 7rem",
             }}
           >
             <h4 style={{ marginTop: "5rem" }}>Artist Availability</h4>
           </div>
-          <CalendarNotification
+          {/* <CalendarNotification
             dates={dates}
             times={times}
             notifications={notifications}
-          />
-        </div>
-
-        <div
-          style={{
-            textAlign: "center",
-            justifyContent: "center",
-            padding: "3rem 7rem",
-          }}
-        >
-          <div
-            style={{
-              textAlign: "center",
-              justifyContent: "center",
-              padding: "3rem 7rem",
-            }}
-          >
-            <h4 style={{ marginTop: "5rem" }}>Latest Tunes</h4>
-          </div>
+          /> */}
+          <Scheduler />
         </div>
         <div
           style={{

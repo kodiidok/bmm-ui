@@ -12,6 +12,7 @@ import Tags from "../../../../components/navbar/tags";
 import IconButton from "@/components/button/iconButton";
 import CalendarNotification from "@/components/calendar/calendar";
 import EventTable from "@/components/table/eventTable";
+import Scheduler from "@/components/scheduler/Scheduler";
 
 export default function Page({ params }: { params: { slug: string } }) {
   const imageUrl =
@@ -145,14 +146,9 @@ export default function Page({ params }: { params: { slug: string } }) {
             <h3>Artist Availability</h3>
             <div
               style={{
-                backgroundColor: "#F8F9FA",
-                width: "100%",
-                height: "300px",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                borderRadius: "10px",
-                color: "#CED4DA",
               }}
             >
               {/* Dashbord Widget */}
@@ -162,11 +158,12 @@ export default function Page({ params }: { params: { slug: string } }) {
                   justifyContent: "center",
                 }}
               >
-                <CalendarNotification
+                {/* <CalendarNotification
                   dates={dates}
                   times={times}
                   notifications={notifications}
-                />
+                /> */}
+                <Scheduler />
               </div>
             </div>
           </div>

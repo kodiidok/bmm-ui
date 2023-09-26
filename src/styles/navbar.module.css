@@ -1,0 +1,134 @@
+.navbar {
+  border-radius: 10px;
+  font-size: medium;
+  width: 390px;
+}
+
+.navbarMobile {
+  width: 390px;
+}
+
+.navbarContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding-top: 2rem;
+}
+
+.menuIcon {
+  width: 100%;
+  justify-content: center;
+  display: none;
+  @media (max-width: 650px) {
+    display: flex;
+  }
+}
+
+.navbarList {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @media (max-width: 650px) {
+    flex-direction: column;
+    align-items: center;
+    display: none;
+  }
+}
+
+.navbarListMobile {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 1rem;
+  @media (max-width: 650px) {
+    margin: 0;
+    display: flex;
+  }
+}
+
+.navbarItem {
+  margin-right: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #252323;
+  @media (max-width: 650px) {
+    margin: 0;
+  }
+}
+
+.navbarItemMobile {
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  color: #252323;
+  @media (max-width: 650px) {
+    margin: 0;
+  }
+}
+
+.navbarItem:hover {
+  background-color: #cccccc;
+}
+
+.navbarItemMobile:hover {
+  background-color: #cccccc;
+}
+
+.navbarItem:last-child {
+  margin-right: 0;
+}
+
+.searchSection {
+  margin: 0%;
+  width: 390px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
+  min-width: 200px;
+}
+
+.searchInput {
+  background-color: transparent;
+  border: none;
+  font-family: Lexend;
+  margin-left: 5px;
+  margin-right: 2rem;
+  flex: auto;
+}
+
+.searchbar {
+  flex: 1;
+  background-color: #e4e4e4;
+  border-radius: 10px;
+  padding: 0.5rem;
+  font-size: smaller;
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+  width: 80%;
+  @media (max-width: 650px) {
+    width: 95%;
+    align-self: center;
+    margin: 0%;
+  }
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.searchInput:focus::placeholder {
+  color: transparent;
+}

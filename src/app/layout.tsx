@@ -1,4 +1,5 @@
 import "./global.scss";
+import "@/styles/fonts.module.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -17,10 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={inter.className}
         style={{
           margin: 0,
           padding: 0,
+          fontFamily: 'Lexend'
         }}
       >
         {children}

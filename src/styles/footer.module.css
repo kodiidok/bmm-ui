@@ -1,0 +1,35 @@
+.footerContainer {
+  background-color: #252323;
+  padding-bottom: 40px;
+  width: 100%;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  color: #64748B;
+  padding-top: 2rem;
+}
+
+.footerList {
+  padding: 0%;
+}
+
+.footerItem {
+  list-style: none;
+  text-align: center;
+  font-size: small;
+  line-height: 2rem;
+}
+
+.footerItem:hover {
+  font-weight: bold;
+  transition: font-weight 0.3s ease;
+}
+
+.poweredBy {
+  display: flex;
+  justify-content: center;
+  font-size: x-small;
+  color: #64748B;
+}
