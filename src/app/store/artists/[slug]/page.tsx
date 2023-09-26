@@ -53,13 +53,6 @@ export default function Page({ params }: { params: { slug: string } }) {
 
   return (
     <main className={styles.main}>
-      <Logo text="bookmymusic" />
-      <Navbar items={navbarItems} />
-      <div className={styles.searchSection}>
-        <Searchbar />
-        <Button size={1} text="Sign in" type={"primary"} />
-      </div>
-
       <div style={{ width: "90%" }}>
         <div>
           <div

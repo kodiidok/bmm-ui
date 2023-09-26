@@ -12,21 +12,10 @@ import { createStyles, getStylesRef, rem } from "@mantine/core";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import { useMutation, gql, useQuery } from "@apollo/client";
 import client from "../../../graphql-client/graphql-shop-client";
-
-const ARTIST_QUERY = gql`
-  {
-    performer(id: 2) {
-      id
-      name
-      type
-      createdAt
-      updatedAt
-      deletedAt
-      description
-      rating
-    }
-  }
-`;
+import ErrorModal from "@/components/modal/errorModal";
+import Button from "@/components/button/button";
+import { FEATURED_ARTISTS_QUERY } from "@/gql/query";
+import FeaturedArtists from "@/components/artist/featuredArtists";
 
 const useStyles = createStyles((theme) => ({
   price: {
@@ -59,21 +48,13 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export default function Page() {
-  const mobile = useMediaQuery("(max-width: 600px)");
-  const slideSize = mobile ? "90%" : "30%";
-  const [initialRenderComplete, setInitialRenderComplete] = useState(false);
-
-  useEffect(() => {
-    setInitialRenderComplete(true);
-  }, []);
-
-  const { loading, error, data } = useQuery(ARTIST_QUERY, { client });
+  // const mobile = useMediaQuery("(max-width: 600px)")
 
   return (
-    <main className={styles['main']}>
-      <div
-        className={styles['container']}
-      >
+    <main className={styles["main"]}>
+      <div className={styles["container"]}>
+        <FeaturedArtists />
+
         {/* <div
           style={{
             width: "90%",
