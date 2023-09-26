@@ -26,15 +26,17 @@ export default function PricingLayout({
       <div className={styles['logo']}>
         <Logo placement="center" bg={true} />
       </div>
-      <Navbar items={defaultNavbarItems} />
-      <div className={styles['searchSection']}>
-        <Searchbar />
-        <Button
-          size={1}
-          text="Sign in"
-          onClick={() => router.push("/store/auth")}
-          type="primary"
-        ></Button>
+      <div className={styles['headerLayout']}>
+        <Navbar items={defaultNavbarItems} />
+        <div className={styles['searchSection']}>
+          <Searchbar />
+          <Button
+            size={1}
+            text="Sign in"
+            onClick={() => router.push("/store/auth")}
+            type="primary"
+          ></Button>
+        </div>
       </div>
 
       {/* main content of the page */}

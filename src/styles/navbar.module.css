@@ -58,7 +58,7 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  color: #252323;
+  /* color: #F8F9FA; */
   @media (max-width: 650px) {
     margin: 0;
   }
@@ -80,10 +80,12 @@
 
 .navbarItem:hover {
   background-color: #cccccc;
+  /* background-color: #FF6B6B; */
 }
 
 .navbarItemMobile:hover {
   background-color: #cccccc;
+  /* background-color: #FF6B6B; */
 }
 
 .navbarItem:last-child {

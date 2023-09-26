@@ -16,6 +16,7 @@ import ErrorModal from "@/components/modal/errorModal";
 import Button from "@/components/button/button";
 import { FEATURED_ARTISTS_QUERY } from "@/gql/query";
 import FeaturedArtists from "@/components/artist/featuredArtists";
+import FeaturedBands from "@/components/band/featuredBands";
 
 const useStyles = createStyles((theme) => ({
   price: {
@@ -54,52 +55,7 @@ export default function Page() {
     <main className={styles["main"]}>
       <div className={styles["container"]}>
         <FeaturedArtists />
-
-        {/* <div
-          style={{
-            width: "90%",
-            alignSelf: "center",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginTop: "2rem",
-              height: "35px",
-              paddingBottom: "1rem",
-            }}
-          >
-            <h2 style={{ margin: 0, alignSelf: "center", color: "#495057" }}>
-              Featured Artists
-            </h2>
-            <Button size={1.1} text="View All" type="secondary" />
-          </div>
-          <CardsCarousel />
-        </div> */}
-
-        {/* <div
-          style={{
-            width: "90%",
-            alignSelf: "center",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginTop: "2rem",
-              height: "35px",
-              paddingBottom: "1rem",
-            }}
-          >
-            <h2 style={{ margin: 0, alignSelf: "center", color: "#495057" }}>
-              Featured Bands
-            </h2>
-            <Button size={1.1} text="View All" type="secondary" />
-          </div>
-          <CardsCarousel />
-        </div> */}
+        <FeaturedBands />
 
         {/* <div
           style={{

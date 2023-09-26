@@ -2,7 +2,7 @@ import { createStyles, rem } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   logoHighlight: {
-    // color: "#F03E3E"
+    color: "#F8F9FA",
     display: "flex",
     alignItems: "center",
   },
@@ -32,7 +32,8 @@ const useStyles = createStyles((theme) => ({
     alignItems: "center",
   },
   bg: {
-    backgroundColor: "#F8F9FA",
+    // backgroundColor: "#F8F9FA",
+    backgroundColor: "#212529",
   },
   noBg: {
 

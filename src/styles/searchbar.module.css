@@ -1,0 +1,42 @@
+.searchSection {
+  margin: 0%;
+  width: 390px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
+  min-width: 200px;
+}
+
+.searchInput {
+  background-color: transparent;
+  border: none;
+  font-family: Lexend;
+  margin-left: 5px;
+  margin-right: 2rem;
+  flex: auto;
+}
+
+.searchbar {
+  flex: 1;
+  background-color: #e4e4e4;
+  border-radius: 10px;
+  padding: 0.7rem;
+  font-size: smaller;
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+  width: 80%;
+  @media (max-width: 650px) {
+    width: 95%;
+    align-self: center;
+    margin: 0%;
+  }
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.searchInput:focus::placeholder {
+  color: transparent;
+}
