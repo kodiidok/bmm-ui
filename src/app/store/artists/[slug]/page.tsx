@@ -196,13 +196,6 @@ export default function Page({ params }: { params: { slug: string } }) {
           </div>
         </div>
       </div>
-      <ContactUs
-        text="Get in touch"
-        line1="We'd love to hear from you."
-        line2="Please fill out this form."
-      />
-
-      <Footer />
     </main>
   );
 }

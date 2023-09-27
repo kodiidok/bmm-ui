@@ -3,8 +3,6 @@
 import { Carousel } from "@mantine/carousel";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import {
-  Group,
-  Text,
   Image,
   Card,
   rem,
@@ -59,7 +57,7 @@ function Cardsdgf({ image, title, date, time, id }: CardProps) {
 
       <div className={styles['buyTicket']}>
         <IconTicket />
-        Buy Tickets
+        Book Now
       </div>
     </Card>
   );
@@ -68,14 +66,14 @@ function Cardsdgf({ image, title, date, time, id }: CardProps) {
 export function CardsCarousel({ data }: CarouselProps) {
   const mobile = useMediaQuery("(max-width: 600px)");
   const cardsPerSlide = 6;
-  const totalSlides = Math.ceil(data.data?.length / cardsPerSlide);
+  const totalSlides = Math.ceil(data?.data?.length / cardsPerSlide);
   const slideSize = mobile ? "90%" : "30%";
   const slides: any = [];
 
   const [dataItems, setDataItems] = useState<any>(null);
 
   useEffect(() => {
-    if (data.data) {
+    if (data?.data) {
       setDataItems(data.data);
     }
   }, [data]);

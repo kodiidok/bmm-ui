@@ -1,4 +1,7 @@
 import React from 'react';
+import styles from '@/styles/queryPage.module.css';
+import '@/styles/fonts.module.css';
+import { IconChevronLeft, IconChevronRight, IconChevronsLeft, IconChevronsRight } from '@tabler/icons-react';
 
 interface PaginationButtonsProps {
   currentPage: number;
@@ -17,27 +20,27 @@ const PaginationButtons = ({ currentPage, totalPages, onPageChange }: Pagination
   const pageNumbers = Array.from({ length: endPage - startPage + 1 }, (_, index) => startPage + index);
 
   return (
-    <div className="pagination">
+    <div className={styles['pagination']}>
       <button
-        className="pagination-button"
+        className={styles['pagination-button']}
         onClick={() => onPageChange(1)}
         disabled={currentPage === 1}
       >
-        First
+        <IconChevronsLeft size={15} />
       </button>
 
       <button
-        className="pagination-button"
+        className={styles['pagination-button']}
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
-        Previous
+        <IconChevronLeft size={15} />
       </button>
 
       {pageNumbers.map((pageNumber) => (
         <button
           key={pageNumber}
-          className={`pagination-button ${pageNumber === currentPage ? 'active' : ''}`}
+          className={`${styles['pagination-button']} ${pageNumber === currentPage ? styles['active'] : ''}`}
           onClick={() => onPageChange(pageNumber)}
         >
           {pageNumber}
@@ -45,19 +48,19 @@ const PaginationButtons = ({ currentPage, totalPages, onPageChange }: Pagination
       ))}
 
       <button
-        className="pagination-button"
+        className={styles['pagination-button']}
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
-        Next
+        <IconChevronRight size={15} />
       </button>
 
       <button
-        className="pagination-button"
+        className={styles['pagination-button']}
         onClick={() => onPageChange(totalPages)}
         disabled={currentPage === totalPages}
       >
-        Last
+        <IconChevronsRight size={15} />
       </button>
     </div>
   );

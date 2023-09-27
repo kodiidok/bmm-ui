@@ -1,6 +1,7 @@
 import styles from '@/styles/cart.module.css';
 import { Image, Input } from '@mantine/core';
 import { IconMinus, IconPlus, IconTrashXFilled, IconX } from '@tabler/icons-react';
+import { useRouter } from 'next/navigation';
 
 const imgUrl =
   "https://i1.sndcdn.com/artworks-NURJW9AoK2D2yyIc-2p6oJw-t500x500.jpg";
@@ -47,6 +48,9 @@ export function Item() {
 }
 
 export default function ShoppingCart() {
+
+  const router = useRouter();
+
   return (
     <div className={styles['cart']}>
       <div className={styles['cartTitle']}>
@@ -70,7 +74,7 @@ export default function ShoppingCart() {
             <p>subtotal</p>
             <span>$32.97</span>
           </div>
-          <div className={styles['checkout']}>Checkout</div>
+          <div className={styles['checkout']} onClick={() => router.push('/store/checkout')}>Checkout</div>
         </div>
       </div>
     </div>

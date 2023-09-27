@@ -20,7 +20,7 @@ export default function Footer() {
           ))}
         </ul>
       </nav>
-      <p className={styles['poweredBy']}>Powered by Seamlessc</p>
+      <p className={styles['poweredBy']}>Powered by SeamlessC</p>
     </footer>
   );
 }

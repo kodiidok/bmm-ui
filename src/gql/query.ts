@@ -37,9 +37,9 @@ export const FEATURED_ARTISTS_QUERY = gql`
 `;
 
 export const ARTISTS_QUERY = gql`
-  query Performers($skip: Int, $take: Int) {
+  query Performers($skip: Int, $take: Int, $type: String) {
     performers(
-      options: { filter: { type: { eq: "Artist" } }, skip: $skip, take: $take }
+      options: { filter: { type: { eq: $type } }, skip: $skip, take: $take }
     ) {
       items {
         id

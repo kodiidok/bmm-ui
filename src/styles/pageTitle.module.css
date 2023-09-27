@@ -1,0 +1,31 @@
+.pageTitle {
+  font-size: 3rem;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
+
+.pageTitle2 {
+  font-size: 3rem;
+  text-align: left;
+  margin: 0;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.pageDescription {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: justify;
+  font-size: small;
+  padding: 2.5rem;
+  border-radius: 0.5rem;
+}
+
+.pageHero {
+  /* box-shadow: 0 4px 8px rgba(180, 180, 180, 0.3); */
+  border-radius: 0.5rem;
+  width: 90%;
+  color: #495057;
+}
