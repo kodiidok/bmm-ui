@@ -51,7 +51,7 @@ function Cardsdgf({ image, title, date, time, id }: CardProps) {
         </div>
       </div>
 
-      <div className={styles['cardInfo2']}>
+      <div className={styles['cardInfo']}>
         <div className={styles['title']}>
           {title}
         </div>

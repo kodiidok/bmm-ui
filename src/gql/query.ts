@@ -36,6 +36,27 @@ export const FEATURED_ARTISTS_QUERY = gql`
   }
 `;
 
+export const ARTISTS_QUERY = gql`
+  query Performers($skip: Int, $take: Int) {
+    performers(
+      options: { filter: { type: { eq: "Artist" } }, skip: $skip, take: $take }
+    ) {
+      items {
+        id
+        name
+        type
+        createdAt
+        updatedAt
+        deletedAt
+        description
+        rating
+        featured
+      }
+      totalItems
+    }
+  }
+`;
+
 export const FEATURED_BANDS_QUERY = gql`
   {
     performers(
