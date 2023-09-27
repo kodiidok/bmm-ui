@@ -1,5 +1,5 @@
 .card {
-  height: 100%;
+  height: 95%;
   display: flex;
   flex-direction: column;
   /* justify-content: space-between; */
@@ -9,8 +9,39 @@
 }
 
 .card:hover {
-  border: 1px solid #FFA8A8;
-  /* box-shadow: 0 4px 8px rgba(250, 82, 82, 0.3); */
+  /* border: 1px solid #FFA8A8; */
+  box-shadow: 0 4px 8px rgba(250, 82, 82, 0.3);
+}
+
+.buyTicket {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  /* background-color: #212529; */
+  background-color: #FA5252;
+  width: 100%;
+  color: #F1F3F5;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.dateTime {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dateTimeContainer {
+  color: #F8F9FA;
+  /* background-color: #FA5252; */
+  background-color: #212529;
+  margin-bottom: 0.5rem;
+  margin: 0;
+  padding: 1rem;
+  font-size: small;
 }
 
 .imageSection {
@@ -26,13 +57,19 @@
   line-height: 0.9;
 }
 
+.titleBig {
+  line-height: 0.9;
+  font-weight: bold;
+}
+
 .rating {
   text-transform: uppercase;
   display: flex;
   gap: 0.25rem;
   font-size: small;
   align-items: center;
-  background-color: #F1F3F5;
+  background-color: #F8F9FA;
+  border: 1px solid #CED4DA;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   padding-left: 0.5rem;
@@ -47,4 +84,27 @@
   padding: 1rem;
   align-items: flex-start;
   gap: 1rem;
+  padding-bottom: 2rem;
+  background-color: #f4f5f7;
+  /* background-color: #FFF5F5; */
+}
+
+.cardInfo2 {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: #F1F3F5;
+  /* background-color: #FFF5F5; */
+}
+
+.card:hover .cardInfo{
+  background-color: #FFF5F5;
+}
+
+.card:hover .rating {
+  border: 1px solid #FA5252;
 }

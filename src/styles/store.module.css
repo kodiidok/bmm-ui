@@ -12,6 +12,25 @@
   align-items: center;
 }
 
+.header {
+  width: 100%;
+}
+
+.shoppingCart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  background-color: #F03E3E;
+  border-radius: 0.5rem;
+  color: #e4e4e4;
+}
+
+.shoppingCart:hover {
+  background-color: #25262B;
+}
+
 .hero {
   padding: 30px;
   display: flex;
@@ -97,6 +116,7 @@
   justify-content: space-between;
   padding-top: 2rem;
   padding-bottom: 2rem;
+  gap: 0.5rem;
   @media (max-width: 650px) {
     flex-direction: column-reverse;
     width: 80%;
@@ -121,7 +141,6 @@
   font-size: smaller;
   display: flex;
   align-items: center;
-  margin-right: 1rem;
   width: 100%;
 }
 

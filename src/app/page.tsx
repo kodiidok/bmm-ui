@@ -5,13 +5,7 @@ import styles from "@/styles/page.module.css";
 
 export default function Home() {
   return (
-    <main
-      style={{
-        margin: 0,
-        padding: 0,
-        height: "1000px"
-      }}
-    >
+    <main className={styles['homeapge']}>
       <Logo placement="center" bg={false}/>
     </main>
   );

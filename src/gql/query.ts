@@ -61,7 +61,7 @@ export const FEATURED_EVENTS_QUERY = gql`
   {
     products(
       options: {
-        filter: { productType: { eq: "Event" }, featured: { eq: true } }
+        filter: { productType: { eq: "event" }, featured: { eq: true } }
       }
     ) {
       items {

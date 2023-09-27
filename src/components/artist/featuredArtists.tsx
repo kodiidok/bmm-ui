@@ -39,7 +39,7 @@ export default function FeaturedArtists() {
       }
 
       {!loading && !error && (
-        <div>
+        <div className={styles['carouselLayout']}>
           <div className={styles['header']}>
             <h2>
               Featured Artists

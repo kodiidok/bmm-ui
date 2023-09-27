@@ -8,7 +8,7 @@
   justify-content: center;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 .container {
   display: flex;
@@ -60,7 +60,7 @@
 }
 
 .navbarItem:hover {
-  background-color: #CCCCCC;
+  background-color: #cccccc;
 }
 
 .navbarItem:last-child {
@@ -113,7 +113,7 @@
 .footer {
   display: flex;
   justify-content: center;
-  color: #64748B;
+  color: #64748b;
   padding-top: 2rem;
 }
 
@@ -137,12 +137,12 @@
   display: flex;
   justify-content: center;
   font-size: x-small;
-  color: #64748B;
+  color: #64748b;
 }
 
 .button {
   font-family: Lexend;
-  background-color: #F03E3E;
+  background-color: #f03e3e;
   border-radius: 10px;
   color: #f8f8f8;
   padding-top: 5px;
@@ -155,7 +155,7 @@
 
 .secondaryButton {
   font-family: Lexend;
-  background-color: #343A40;
+  background-color: #343a40;
   border-radius: 10px;
   color: #f8f8f8;
   padding-top: 5px;
@@ -168,7 +168,7 @@
 
 .roundButton {
   font-family: Lexend;
-  background-color: #343A40;
+  background-color: #343a40;
   border-radius: 50px;
   color: #f8f8f8;
   padding-top: 15px;
@@ -180,19 +180,19 @@
 }
 
 .button:hover {
-  background-color: #25262B;
+  background-color: #25262b;
   color: #f8f8f8;
   transition: background-color 0.3s ease;
 }
 
 .roundButton:hover {
-  background-color: #25262B;
+  background-color: #25262b;
   color: #f8f8f8;
   transition: background-color 0.3s ease;
 }
 
 .secondaryButton:hover {
-  background-color: #25262B;
+  background-color: #25262b;
   color: #f8f8f8;
   transition: background-color 0.3s ease;
 }
@@ -205,16 +205,21 @@
   align-items: center;
 }
 
-.carouselAlign{
-  display:flex;
+.carouselAlign {
+  display: flex;
   flex-direction: row;
   gap: 2rem;
 }
-.carouselItem{
-  flex:1;
+.carouselItem {
+  flex: 1;
 }
 
-.carouselHeader{
+.carouselHeader {
   margin-top: 2rem;
-  
+}
+
+.homepage {
+  margin: 0;
+  padding: 0;
+  height: 1000px;
 }

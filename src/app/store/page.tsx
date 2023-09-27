@@ -1,113 +1,25 @@
 "use client";
 
-import Footer from "@/components/common/footer";
-import ContactUs from "@/components/common/contactUs";
 import styles from "@/styles/store.module.scss";
-import { Carousel } from "@mantine/carousel";
-import React, { useState, useEffect } from "react";
+import React  from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { CardsCarousel } from "@/components/carousel/carousel";
-import { CarouselEvent } from "@/components/carousel/carouselEvent";
-import { createStyles, getStylesRef, rem } from "@mantine/core";
-import { useMediaQuery } from "@uidotdev/usehooks";
-import { useMutation, gql, useQuery } from "@apollo/client";
-import client from "../../../graphql-client/graphql-shop-client";
-import ErrorModal from "@/components/modal/errorModal";
-import Button from "@/components/button/button";
-import { FEATURED_ARTISTS_QUERY } from "@/gql/query";
 import FeaturedArtists from "@/components/artist/featuredArtists";
 import FeaturedBands from "@/components/band/featuredBands";
-
-const useStyles = createStyles((theme) => ({
-  price: {
-    color: theme.colorScheme === "dark" ? theme.white : theme.black,
-  },
-
-  carousel: {
-    "&:hover": {
-      [`& .${getStylesRef("carouselControls")}`]: {
-        opacity: 1,
-      },
-    },
-  },
-
-  carouselControls: {
-    ref: getStylesRef("carouselControls"),
-    transition: "opacity 150ms ease",
-    opacity: 0,
-  },
-
-  carouselIndicator: {
-    width: rem(4),
-    height: rem(4),
-    transition: "width 250ms ease",
-
-    "&[data-active]": {
-      width: rem(16),
-    },
-  },
-}));
+import FeaturedEvents from "@/components/event/featuredEvents";
 
 export default function Page() {
-  // const mobile = useMediaQuery("(max-width: 600px)")
 
   return (
     <main className={styles["main"]}>
       <div className={styles["container"]}>
+
+        {/* <div>
+        "Discover the Stars of Sound: Explore our handpicked selection of Featured Artists, Top Bands, and Must-Attend Events on our homepage. From chart-toppers to emerging talents, we've curated a musical universe for you to explore and book. Whether you're seeking the perfect performer for your event or looking for the hottest gig in town, our homepage is your gateway to the world of music and entertainment. Join us in celebrating the power of live music!"
+        </div> */}
+
         <FeaturedArtists />
         <FeaturedBands />
-
-        {/* <div
-          style={{
-            width: "90%",
-            alignSelf: "center",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginTop: "2rem",
-              height: "35px",
-              paddingBottom: "1rem",
-            }}
-          >
-            <h2 style={{ margin: 0, alignSelf: "center", color: "#495057" }}>
-              Featured Events
-            </h2>
-            <Button size={1.1} text="View All" type="secondary" />
-          </div>
-          <div className={styles.carouselAlign}>
-            <Carousel
-              withIndicators
-              loop={true}
-              classNames={{
-                root: classes.carousel,
-                controls: classes.carouselControls,
-                indicator: classes.carouselIndicator,
-              }}
-              align="start"
-              slideGap={rem(10)}
-              slideSize={slideSize}
-              style={{
-                width: "100%",
-              }}
-            >
-              {Array.from({ length: 4 }).map((_, index) => (
-                <Carousel.Slide key={index}>
-                  <CarouselEvent
-                    key={index}
-                    images={images3}
-                    title={title}
-                    rating={rating}
-                    description={description}
-                    price={price}
-                  />
-                </Carousel.Slide>
-              ))}
-            </Carousel>
-          </div>
-        </div> */}
+        <FeaturedEvents />
       </div>
     </main>
   );

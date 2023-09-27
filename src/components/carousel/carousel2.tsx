@@ -9,7 +9,7 @@ import {
   Card,
   rem,
 } from "@mantine/core";
-import { IconStar } from "@tabler/icons-react";
+import { IconCalendarEvent, IconClock2, IconTicket } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import styles from "@/styles/carousel.module.css";
@@ -20,15 +20,16 @@ const imgUrl =
 export interface CardProps {
   image: string;
   title: string;
-  rating: string;
   id: string;
+  date: string;
+  time: string;
 }
 
 export interface CarouselProps {
   data: any;
 }
 
-function Cardsdgf({ image, title, rating, id }: CardProps) {
+function Cardsdgf({ image, title, date, time, id }: CardProps) {
 
   const router = useRouter();
 
@@ -39,14 +40,26 @@ function Cardsdgf({ image, title, rating, id }: CardProps) {
         <Image src={image} height={150} />
       </Card.Section>
 
-      <div className={styles['cardInfo']}>
+      <div className={styles['dateTimeContainer']}>
+        <div className={styles['dateTime']}>
+          <IconCalendarEvent size={20} />
+          {date}
+        </div>
+        <div className={styles['dateTime']}>
+          <IconClock2  size={20} />
+          {time}
+        </div>
+      </div>
+
+      <div className={styles['cardInfo2']}>
         <div className={styles['title']}>
           {title}
         </div>
-        <div className={styles['rating']}>
-          <IconStar size="1rem" fill="#FFE066" color="#FFD43B" />
-          <div>{rating}</div>
-        </div>
+      </div>
+
+      <div className={styles['buyTicket']}>
+        <IconTicket />
+        Buy Tickets
       </div>
     </Card>
   );
@@ -73,9 +86,27 @@ export function CardsCarousel({ data }: CarouselProps) {
       const endIdx = Math.min(startIdx + cardsPerSlide, dataItems.length);
       const slideData = dataItems.slice(startIdx, endIdx);
       const mappedData = slideData.map((item: any, itemIndex: number) => {
+        const timestamp = item.customFields.dateTime;
+
+        // Create a Date object from the timestamp
+        const date = new Date(timestamp);
+
+        // Extract the date in yyyy-mm-dd format
+        const formattedDate = date.toISOString().split('T')[0];
+
+        // Extract the time in hh:mm format
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const formattedTime = `${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
+
+        // Format the time in "12.30 PM" format
+        const hours12 = hours % 12 || 12; // Convert to 12-hour format
+        const ampm = hours < 12 ? 'AM' : 'PM';
+        const formattedTime12 = `${hours12}.${minutes} ${ampm}`;
+
         return (
           <Carousel.Slide key={slideIndex}>
-            <Cardsdgf key={item.id} id={item.id} rating={item.rating} title={item.name} image={imgUrl} />
+            <Cardsdgf key={item.id} id={item.id} title={item.name} image={imgUrl} time={formattedTime12} date={formattedDate} />
           </Carousel.Slide>
         )
       });
@@ -84,7 +115,7 @@ export function CardsCarousel({ data }: CarouselProps) {
   }
 
   return (
-    <div className="" style={{ padding: "0rem", overflow: "visible" }}>
+    <div className="" style={{ padding: "0rem" }}>
       <Carousel
         slideSize={slideSize}
         slideGap={rem(10)}
