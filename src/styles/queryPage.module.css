@@ -55,6 +55,37 @@
   object-fit: contain;
 }
 
+.buyTicket {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  /* background-color: #212529; */
+  background-color: #FA5252;
+  width: 100%;
+  color: #F1F3F5;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.dateTime {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dateTimeContainer {
+  color: #FA5252;
+  /* background-color: #FA5252; */
+  background-color: #F8F9FA;
+  margin-bottom: 0.5rem;
+  margin: 0;
+  padding: 1rem;
+  font-size: small;
+}
+
 .title {
   line-height: 0.9;
 }

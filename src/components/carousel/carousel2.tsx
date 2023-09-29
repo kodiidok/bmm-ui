@@ -44,7 +44,7 @@ function Cardsdgf({ image, title, date, time, id }: CardProps) {
           {date}
         </div>
         <div className={styles['dateTime']}>
-          <IconClock2  size={20} />
+          <IconClock2 size={20} />
           {time}
         </div>
       </div>
@@ -103,8 +103,8 @@ export function CardsCarousel({ data }: CarouselProps) {
         const formattedTime12 = `${hours12}.${minutes} ${ampm}`;
 
         return (
-          <Carousel.Slide key={slideIndex}>
-            <Cardsdgf key={item.id} id={item.id} title={item.name} image={imgUrl} time={formattedTime12} date={formattedDate} />
+          <Carousel.Slide key={itemIndex}>
+            <Cardsdgf id={item.id} title={item.name} image={imgUrl} time={formattedTime12} date={formattedDate} />
           </Carousel.Slide>
         )
       });

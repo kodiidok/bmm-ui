@@ -6,11 +6,12 @@ import ContactUs from "@/components/common/contactUs";
 import Footer from "@/components/common/footer";
 import Header from "@/components/common/header";
 
-export default function PricingLayout({
+export default function Layout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  
   return (
     <section className={styles['section']}>
       <Header />

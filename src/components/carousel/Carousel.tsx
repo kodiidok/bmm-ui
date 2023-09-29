@@ -72,8 +72,8 @@ export function CardsCarousel({ data }: CarouselProps) {
       const slideData = dataItems.slice(startIdx, endIdx);
       const mappedData = slideData.map((item: any, itemIndex: number) => {
         return (
-          <Carousel.Slide key={slideIndex}>
-            <Cardsdgf key={item.id} id={item.id} rating={item.rating} title={item.name} image={imgUrl} />
+          <Carousel.Slide key={itemIndex}>
+            <Cardsdgf id={item.id} rating={item.rating} title={item.name} image={imgUrl} />
           </Carousel.Slide>
         )
       });

@@ -8,7 +8,7 @@ import Button from "@/components/button/button";
 import { defaultNavbarItems } from "@/components/navbar/navbarItems";
 import { IconShoppingCart } from '@tabler/icons-react';
 import { useRouter } from "next/navigation";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ShoppingCart from '../cart/cart';
 
 export default function Header() {
