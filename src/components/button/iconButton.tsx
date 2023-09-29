@@ -23,7 +23,7 @@ export default function IconButton({ text, size, icon }: Props) {
   };
 
   return (
-    <button type="submit" className={styles.roundButton} style={buttonStyle}>
+    <button type="submit" className={styles.roundButton}>
       <span style={iconStyle}>{icon}</span> {text}
     </button>
   );

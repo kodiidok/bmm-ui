@@ -5,7 +5,7 @@ export const baseAdminUrl = "/store";
 
 export const defaultNavbarItems: NavbarItemProps[] = [
   {
-    text: "dashboard",
+    text: "home",
     href: baseStoreUrl,
   },
   {
@@ -20,8 +20,8 @@ export const defaultNavbarItems: NavbarItemProps[] = [
     text: "events",
     href: `${baseStoreUrl}/events`,
   },
-  {
-    text: "settings",
-    href: `${baseStoreUrl}/settings`,
-  },
+  // {
+  //   text: "settings",
+  //   href: `${baseStoreUrl}/settings`,
+  // },
 ];

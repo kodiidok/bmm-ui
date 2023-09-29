@@ -17,15 +17,25 @@
 .pageDescription {
   display: flex;
   flex-wrap: wrap;
-  text-align: justify;
-  font-size: small;
-  padding: 2.5rem;
+  text-align: center;
+  font-weight: 500;
+  font-size: medium;
+  padding: 2rem;
   border-radius: 0.5rem;
+  max-width: 650px;
+  /* width: 100%; */
+  background-color: #f03e3e;
+  /* border: 2px solid #C92A2A; */
+  /* box-shadow: 0 4px 8px #4400004d; */
 }
 
 .pageHero {
-  /* box-shadow: 0 4px 8px rgba(180, 180, 180, 0.3); */
-  border-radius: 0.5rem;
-  width: 90%;
-  color: #495057;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  color: #F8F9FA;
 }

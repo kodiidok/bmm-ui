@@ -15,7 +15,8 @@
 .header h2 { 
   margin: 0; 
   align-self: center; 
-  color: #495057; 
+  /* color: #495057;  */
+  color: #F03E3E;
 }
 
 /* .carouselLayout {

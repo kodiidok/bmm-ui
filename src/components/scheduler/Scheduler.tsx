@@ -24,6 +24,7 @@ const useStyles = createStyles((theme) => ({
     gap: '2px'
   },
   scrollableContainer: {
+    width: '100%',
     display: 'flex',
     textAlign: 'center',
     overflowX: 'auto',
@@ -210,7 +211,7 @@ export const createSchedule = (dateArray: DateInfo[]) => {
           </div>
         </div>
       </div>
-      <ScrollArea>
+      <ScrollArea style={{width: '90%'}}>
         <div className={classes.scrollableContainer}>
           {Object.entries(groupedDates).map(([month, dates], index) => (
             <div

@@ -167,6 +167,19 @@
   font-size: small;
 }
 
+.featuredButton {
+  font-family: Lexend;
+  background-color: #f08c00;
+  border-radius: 10px;
+  color: #25262b;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border: none;
+  font-size: small;
+}
+
 .roundButton {
   font-family: Lexend;
   background-color: #343a40;
@@ -187,6 +200,12 @@
 }
 
 .roundButton:hover {
+  background-color: #25262b;
+  color: #f8f8f8;
+  transition: background-color 0.3s ease;
+}
+
+.featuredButton:hover {
   background-color: #25262b;
   color: #f8f8f8;
   transition: background-color 0.3s ease;
@@ -223,4 +242,44 @@
   margin: 0;
   padding: 0;
   height: 1000px;
+}
+
+.queryPageHeader {
+  display: flex;
+  width: 90%;
+}
+
+.queryPageTitle {
+  text-align: left;
+  color: #495057;
+  font-size: 3rem;
+}
+
+.pageContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.featuredSection {
+  background-color: #fff9db;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+.listItem {
+  color: #64748b;
+  list-style: none;
+}
+
+.tags {
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
 }

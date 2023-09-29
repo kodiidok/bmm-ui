@@ -4,7 +4,7 @@ interface Props {
   text: string
   size: number
   onClick?: (event: any) => void
-  type: "round" | "secondary" | "primary"
+  type: "round" | "secondary" | "primary" | "featured"
 }
 
 export default function Button({ text, size, onClick, type }: Props) {
@@ -17,6 +17,8 @@ export default function Button({ text, size, onClick, type }: Props) {
     className = styles.roundButton;
   } else if (type === "secondary") {
     className = styles.secondaryButton;
+  } else if (type === "featured") {
+    className = styles.featuredButton;
   }
 
   return (

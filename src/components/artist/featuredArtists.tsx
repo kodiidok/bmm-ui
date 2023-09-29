@@ -44,7 +44,7 @@ export default function FeaturedArtists() {
             <h2>
               Featured Artists
             </h2>
-            <Button size={1.1} text="View All" type="secondary" />
+            <Button size={1.1} text="View All" type="featured" />
           </div>
           <CardsCarousel data={carouselData} />
         </div>

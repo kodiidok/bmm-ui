@@ -167,6 +167,19 @@
   font-size: small;
 }
 
+.featuredButton {
+  font-family: Lexend;
+  background-color: #F03E3E;
+  border-radius: 10px;
+  color: #e4e4e4;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border: none;
+  font-size: small;
+}
+
 .roundButton {
   font-family: Lexend;
   // background-color: #df1b32;
@@ -179,6 +192,14 @@
   padding-right: 3rem;
   border: none;
   font-size: small;
+  display: flex;
+  align-items: center;
+}
+
+.featuredButton:hover {
+  background-color: #25262b;
+  color: #f8f8f8;
+  transition: background-color 0.3s ease;
 }
 
 .button:hover {

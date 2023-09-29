@@ -15,6 +15,7 @@ const afterwareLink = new ApolloLink((operation, forward) => {
         if (authHeader) {
             // If the auth token has been returned by the Vendure
             // server, we store it in localStorage
+            console.log(authHeader);
             localStorage.setItem(AUTH_TOKEN_KEY, authHeader);
         }
         return response;

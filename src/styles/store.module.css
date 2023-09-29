@@ -42,8 +42,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 90%;
-  padding-top: 2rem;
+  width: 100%;
+  /* padding-top: 2rem; */
 }
 
 .container {
@@ -184,7 +184,7 @@
 
 .button {
   font-family: Lexend;
-  background-color: #df1b32;
+  background-color: #F03E3E;
   border-radius: 10px;
   color: #f8f8f8;
   padding-top: 5px;
@@ -193,9 +193,33 @@
   padding-right: 1rem;
   border: none;
   font-size: small;
+  display: flex;
+  align-items: center;
+}
+
+.button2 {
+  font-family: Lexend;
+  background-color: #F03E3E;
+  border-radius: 10px;
+  color: #f8f8f8;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border: none;
+  font-size: medium;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .button:hover {
+  background-color: #252323;
+  color: #f8f8f8;
+  transition: background-color 0.3s ease;
+}
+
+.button2:hover {
   background-color: #252323;
   color: #f8f8f8;
   transition: background-color 0.3s ease;
@@ -221,4 +245,50 @@
 .carouselHeader{
   margin-top: 2rem;
   
+}
+
+.name {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.name h2{
+  margin: 0;
+  font-size: 2rem;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tags {
+  display: flex;
+  justify-content: left;
+  gap: 0.5rem;
+}
+
+.meta {
+  text-align: center;
+  width: 100%;
+  max-width: 710px;
+  min-width: 320px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.submeta {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subheading {
+  text-align: center;
 }

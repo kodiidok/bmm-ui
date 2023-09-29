@@ -75,6 +75,21 @@
   background-color: #212529;
 }
 
+.toast {
+  width: 100%;
+  background-color: #FFF5F5;
+  border: 1px solid #FA5252;
+  color: #FA5252;
+  font-size: small;
+  border-radius: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .authFormContainer {
   display: flex;
   flex-direction: column;

@@ -40,8 +40,8 @@ export const EVENTS_BY_TYPE_QUERY = gql`
   query Products($skip: Int, $take: Int, $type: String) {
     products(
       options: {
-        filter: { productType: { eq: $type } },
-        skip: $skip,
+        filter: { productType: { eq: $type } }
+        skip: $skip
         take: $take
       }
     ) {
@@ -164,6 +164,50 @@ export const FEATURED_EVENTS_QUERY = gql`
         }
       }
       totalItems
+    }
+  }
+`;
+
+export const ACTIVE_CHANNEL = gql`
+  {
+    activeChannel {
+      code
+      token
+    }
+  }
+`;
+
+export const ACTIVE_CUSTOMER = gql`
+  {
+    activeCustomer {
+      id
+      firstName
+      lastName
+      emailAddress
+    }
+  }
+`;
+
+export const ACTIVE_ORDER = gql`
+  {
+    activeOrder {
+      id
+    }
+  }
+`;
+
+export const PERFORMEY_BY_ID = gql`
+  query Performer ($id: ID!) {
+    performer(id: $id) {
+      id
+      name
+      type
+      createdAt
+      updatedAt
+      deletedAt
+      description
+      rating
+      featured
     }
   }
 `;

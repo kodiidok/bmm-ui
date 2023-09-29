@@ -12,7 +12,7 @@ export interface NavbarItemProps {
   href?: string;
 }
 
-export default function Navbar({ items }: NavbarProps) {
+export default function Navbar({ items  }: NavbarProps) {
   const [navbarMobile, setNavbarMobile] = useState(false);
 
   return (

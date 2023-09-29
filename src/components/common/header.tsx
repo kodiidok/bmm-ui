@@ -10,14 +10,31 @@ import { IconShoppingCart } from '@tabler/icons-react';
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from 'react';
 import ShoppingCart from '../cart/cart';
+import UserProfile from '../user/UserProfile';
+import { useStore } from '../providers/storeProvider';
 
 export default function Header() {
   const [openCart, setOpenCart] = useState(false);
+  const [openProfile, setOpenProfile] = useState(false);
+  const { activeCustomer, setActiveCustomer, activeOrder, setActiveOrder } = useStore();
+
   const router = useRouter();
+
+  useEffect(() => {
+    console.log('active', activeCustomer);
+    console.log('active', activeOrder);
+  }, []);
 
   const handleCart = () => {
     console.log(openCart);
     setOpenCart(!openCart);
+    setOpenProfile(false);
+  }
+
+  const handleProfile = () => {
+    console.log(openProfile);
+    setOpenProfile(!openProfile);
+    setOpenCart(false);
   }
 
   return (
@@ -29,12 +46,21 @@ export default function Header() {
         <Navbar items={defaultNavbarItems} />
         <div className={styles['searchSection']}>
           <Searchbar />
-          <Button
-            size={1}
-            text="Sign in"
-            onClick={() => router.push("/store/auth")}
-            type="primary"
-          ></Button>
+          {
+            activeCustomer === null ?
+              <Button
+                size={1}
+                text="Sign in"
+                onClick={() => router.push("/store/auth")}
+                type="primary"
+              ></Button> :
+              <Button
+                size={1}
+                text={`${activeCustomer.firstName}`}
+                onClick={() => handleProfile()}
+                type="primary"
+              ></Button>
+          }
           <div className={styles['shoppingCart']} onClick={() => handleCart()}>
             <IconShoppingCart size={25} />
           </div>
@@ -43,6 +69,14 @@ export default function Header() {
       {
         openCart &&
         <ShoppingCart />
+      }
+      {
+        openProfile &&
+        <UserProfile
+          name={`${activeCustomer.firstName} ${activeCustomer.lastName}`}
+          email={activeCustomer.emailAddress}
+          id={activeCustomer.id}
+        />
       }
     </div>
   );

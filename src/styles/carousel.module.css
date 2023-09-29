@@ -89,6 +89,18 @@
   /* background-color: #FFF5F5; */
 }
 
+.cardInfoFeatured {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-bottom: 2rem;
+  /* background-color: #FFE066; */
+  background-color: #FFEC99;
+  /* background-color: #FFF5F5; */
+}
+
 .cardInfo2 {
   display: flex;
   flex-direction: column;
