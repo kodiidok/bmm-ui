@@ -18,20 +18,33 @@ export const ARTIST_QUERY = gql`
 export const PERFORMERS_BY_TYPE_QUERY = gql`
   query Performers($skip: Int, $take: Int, $type: String) {
     performers(
-      options: { filter: { type: { eq: $type } }, skip: $skip, take: $take }
+      # options: { filter: { type: { eq: $type } }, skip: $skip, take: $take }
+      options: { type: $type, skip: $skip, take: $take }
     ) {
-      items {
+      id
+      name
+      type
+      createdAt
+      updatedAt
+      deletedAt
+      description
+      rating
+      featured
+      products {
         id
-        name
-        type
         createdAt
         updatedAt
-        deletedAt
+        languageCode
+        name
+        slug
         description
-        rating
-        featured
+        customFields {
+          dateTime
+          featured
+          productType
+          venue
+        }
       }
-      totalItems
     }
   }
 `;
@@ -84,42 +97,60 @@ export const EVENTS_BY_TYPE_QUERY = gql`
 
 export const FEATURED_ARTISTS_QUERY = gql`
   {
-    performers(
-      options: { filter: { featured: { eq: true }, type: { eq: "Artist" } } }
-    ) {
-      items {
+    performers(options: { type: "Artist", featured: true }) {
+      name
+      type
+      createdAt
+      updatedAt
+      deletedAt
+      description
+      rating
+      featured
+      products {
         id
-        name
-        type
         createdAt
         updatedAt
-        deletedAt
+        languageCode
+        name
+        slug
         description
-        rating
-        featured
+        customFields {
+          dateTime
+          featured
+          productType
+          venue
+        }
       }
-      totalItems
     }
   }
 `;
 
 export const FEATURED_BANDS_QUERY = gql`
   {
-    performers(
-      options: { filter: { featured: { eq: true }, type: { eq: "Band" } } }
-    ) {
-      items {
+    performers(options: { type: "Band", featured: true }) {
+      name
+      type
+      createdAt
+      updatedAt
+      deletedAt
+      description
+      rating
+      featured
+      products {
         id
-        name
-        type
         createdAt
         updatedAt
-        deletedAt
+        languageCode
+        name
+        slug
         description
-        rating
-        featured
+        customFields {
+          dateTime
+          featured
+          productType
+          venue
+        }
       }
-      totalItems
     }
   }
 `;
@@ -196,8 +227,8 @@ export const ACTIVE_ORDER = gql`
   }
 `;
 
-export const PERFORMEY_BY_ID = gql`
-  query Performer ($id: ID!) {
+export const PERFORMER_BY_ID = gql`
+  query Performer($id: ID!) {
     performer(id: $id) {
       id
       name
@@ -208,6 +239,21 @@ export const PERFORMEY_BY_ID = gql`
       description
       rating
       featured
+      products {
+        id
+        createdAt
+        updatedAt
+        languageCode
+        name
+        slug
+        description
+        customFields {
+          dateTime
+          featured
+          productType
+          venue
+        }
+      }
     }
   }
 `;

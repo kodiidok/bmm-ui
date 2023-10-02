@@ -7,7 +7,7 @@ import Tags from '@/components/navbar/tags';
 import IconButton from "@/components/button/iconButton";
 import EventTable from "@/components/table/eventTable";
 import Scheduler from "@/components/scheduler/Scheduler";
-import { PERFORMEY_BY_ID } from "@/gql/query";
+import { PERFORMER_BY_ID } from "@/gql/query";
 import { useQuery } from "@apollo/client";
 import client from "../../../../../../graphql-client/graphql-shop-client";
 import { useEffect, useState } from "react";
@@ -17,7 +17,7 @@ export default function Page({ params }: { params: { slug: string } }) {
   const imageUrl =
     "https://i1.sndcdn.com/artworks-NURJW9AoK2D2yyIc-2p6oJw-t500x500.jpg";
   const [performer, setPerformer] = useState<any>(null);
-  const { loading, error, data } = useQuery(PERFORMEY_BY_ID, { client, variables: { id: params.slug } });
+  const { loading, error, data } = useQuery(PERFORMER_BY_ID, { client, variables: { id: params.slug } });
 
   useEffect(() => {
     console.log(params.slug);

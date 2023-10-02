@@ -95,7 +95,7 @@ export default function QueryPage({ query, skip, take, type, title }: QueryPageP
             </h2>
           </div> */}
           <div className={styles['cards']}>
-            {data.performers.items.map((item: any) => {
+            {data.performers?.map((item: any) => {
               return (
                 <Cardsdgf key={item.id} image={imgUrl} title={item.name} rating={item.rating} id={item.id} />
               )

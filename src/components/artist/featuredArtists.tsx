@@ -14,7 +14,7 @@ export default function FeaturedArtists() {
   const [carouselData, setCarouselData] = useState<any>(null);
 
   useEffect(() => {
-    const items = data?.performers?.items.map((item: any) => {
+    const items = data?.performers?.map((item: any) => {
       return ({
         name: item.name,
         id: item.id,
