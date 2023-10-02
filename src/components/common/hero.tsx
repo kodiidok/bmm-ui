@@ -1,6 +1,16 @@
 import styles from "@/styles/pageTitle.module.css";
 
-export default function Hero() {
+interface HeroProps {
+  title: string;
+  description: string;
+}
+
+export default function Hero({ title, description }: HeroProps) {
+
+  if (!title && !description) {
+    return null;
+  }
+
   return (
     <div
       className={styles['pageHero']}
@@ -10,10 +20,13 @@ export default function Hero() {
         backgroundSize: 'contain',
       }}
     >
-      <h1 className={styles['pageTitle']}>Home</h1>
-      <div className={styles['pageDescription']}>
-        "Discover the Stars of Sound: Explore our handpicked selection of Featured Artists, Top Bands, and Must-Attend Events on our homepage. From chart-toppers to emerging talents, we've curated a musical universe for you to explore and book. Whether you're seeking the perfect performer for your event or looking for the hottest gig in town, our homepage is your gateway to the world of music and entertainment. Join us in celebrating the power of live music!"
-      </div>
+      <h1 className={styles['pageTitle']}>{title}</h1>
+      {
+        description && 
+        <div className={styles['pageDescription']}>
+          {description}
+        </div>
+      }
     </div>
   );
 }

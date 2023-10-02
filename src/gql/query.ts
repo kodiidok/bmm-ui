@@ -98,6 +98,7 @@ export const EVENTS_BY_TYPE_QUERY = gql`
 export const FEATURED_ARTISTS_QUERY = gql`
   {
     performers(options: { type: "Artist", featured: true }) {
+      id
       name
       type
       createdAt
@@ -128,6 +129,7 @@ export const FEATURED_ARTISTS_QUERY = gql`
 export const FEATURED_BANDS_QUERY = gql`
   {
     performers(options: { type: "Band", featured: true }) {
+      id
       name
       type
       createdAt

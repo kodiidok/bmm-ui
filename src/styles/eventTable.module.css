@@ -1,0 +1,30 @@
+.tableContainer {
+  width: 100%;  
+}
+
+.table {
+  width: 100%;
+}
+
+.tableBody {
+  width: 100%;
+}
+
+.tableRow {
+  width: 100%;
+  color: #F8F9FA;
+}
+
+.tableData1 {
+  background-color: #25262B;
+  border-radius: 0.5rem;
+}
+
+.tableData2 {
+  background-color: #373A40;
+  border-radius: 0.5rem;
+}
+
+.tableData1:hover, .tableData2:hover {
+  background-color: #FA5252;
+}

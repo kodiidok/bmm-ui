@@ -1,42 +1,12 @@
 import React from "react";
 import { Table } from "@mantine/core";
+import styles from '@/styles/eventTable.module.css';
 
-const EventTable = () => {
-  const data = [
-    {
-      id: 1,
-      day: "Tomorrow",
-      date: "2/28/2021",
-      name: "Row 1",
-      startTime: "6:30",
-      endTime: "9:00",
-      time: "PM",
-      eventTitle: "Infinity Live In Concert",
-      location: "Galle Face",
-    },
-    {
-      id: 1,
-      day: "Thursday",
-      date: "3/4/2021",
-      name: "Row 1",
-      startTime: "6:30",
-      endTime: "9:00",
-      time: "PM",
-      eventTitle: "Infinity Live In Concert",
-      location: "Galle Face",
-    },
-    {
-      id: 1,
-      day: "Saturday",
-      date: "3/6/2021",
-      name: "Row 1",
-      startTime: "6:30",
-      endTime: "9:00",
-      time: "PM",
-      eventTitle: "Infinity Live In Concert",
-      location: "Galle Face",
-    },
-  ];
+interface EventTableProps {
+  events: any
+}
+
+const EventTable = ({ events }: EventTableProps) => {
 
   const handleRowClick = (id: any) => {
     // Handle the click event here
@@ -44,25 +14,26 @@ const EventTable = () => {
   };
 
   return (
-    <div>
-      <Table>
-        <tbody>
-          {data.map((item, index) => (
+    <div className={styles['tableContainer']}>
+      <Table className={styles['table']}>
+        <tbody className={styles['tableBody']}>
+          {events.map((item: any, index: number) => (
             <tr
               key={item.id}
               onClick={() => handleRowClick(item.id)}
+              className={styles['tableRow']}
             >
-              <td style={{ border: "none" }}>
+              <td className={index % 2 === 0 ? styles['tableData1'] : styles['tableData2']}>
                 <div>
-                  <b>{item.day.toUpperCase()}</b> {item.date}
+                  {/* extract the date portion from 2023-09-13T12:30:00.000Z in the following format, Monday, 13th of September */}
+                  {item.customFields.dateTime}
                 </div>
+                {/* extract the time portion from 2023-09-13T12:30:00.000Z and show Morning Session 10.00 AM */}
+                {/* {item.customFields.dateTime} */}
                 <div>
-                  {item.startTime} - {item.endTime} {item.time}
+                  <b>{item.name}</b>
                 </div>
-                <div>
-                  <b>{item.eventTitle}</b>
-                </div>
-                <div>{item.location}</div>
+                <div>{item.customFields.venue}</div>
               </td>
             </tr>
           ))}
